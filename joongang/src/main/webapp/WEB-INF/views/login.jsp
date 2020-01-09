@@ -9,8 +9,9 @@
 </head>
 <body>
 	<div id="container">
-		<div class="">
+		<div class="test">
 			<div>
+				GitHub Test 입니다.
 				로그인하는 페이지 입니다.
 			</div>
 			<div>
