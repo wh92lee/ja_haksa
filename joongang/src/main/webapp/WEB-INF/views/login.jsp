@@ -9,9 +9,15 @@
 </head>
 <body>
 	<div id="container">
+<<<<<<< HEAD
+		<div class="">
+			<div>
+				가나다라마바사
+=======
 		<div class="test">
 			<div>
 				GitHub Test 입니다.
+>>>>>>> refs/heads/master
 				로그인하는 페이지 입니다.
 				가나다라마바사
 			</div>
