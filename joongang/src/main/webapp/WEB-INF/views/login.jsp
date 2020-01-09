@@ -13,6 +13,7 @@
 			<div>
 				GitHub Test 입니다.
 				로그인하는 페이지 입니다.
+				가나다라마바사
 			</div>
 			<div>
 					아이디 : <input type="text" name="pid" id="pid"> &nbsp;&nbsp;
