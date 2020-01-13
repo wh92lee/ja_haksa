@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="<c:url value="/resources/js/jquery-1.9.1.js" />">
+<script src="<c:url value="js/jquery-1.9.1.js" />">
 <script type="text/javascript">
 	function idchk() {
 		if (!frm.pid.value) {
@@ -27,6 +27,7 @@
 </script>
 </head>
 <body>
+	<div id="wrap">
 	<div id="container">
 		<div class="test">
 			<div>로그인하는 페이지 입니다.</div>
@@ -35,12 +36,13 @@
 				아이디 : <input type="text" name="pid" id="pid"  onsubmit="return idchk()"> &nbsp;&nbsp;
 				비밀번호 : <input type="password" name="ppw" id="ppw" onsubmit="return passwdchk()" > &nbsp;
 					<input type="submit" value="로그인"> &nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="button" value="회원가입"   onclick="location.href='join'">&nbsp;
+					<input type="button" value="회원가입"   onclick="location.href='joinForm.do'">&nbsp;
                     <input type="button" value="아이디찾기"   onclick="location.href='#'">&nbsp;
                     <input type="button" value="비밀번호찾기" onclick="location.href='#'">&nbsp;
 				</form>
 			</div>
 		</div>
+	</div>
 	</div>
 
 

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+.btnColor {
+border: 0;
+	color: white;
+	background-color: #3DB7CC;
+	background-position: - -47px;
+	height: 29px;
+	width: 120px;
+	font-size: 15px;
+	margin-top: 5px;
+}
+.btnColor1{
+	margin-top: 15px;
+	border: 0;
+	color: white;
+	background-color: #3DB7CC;
+	background-position: - -47px;
+	height: 29px;
+	width: 80px;
+	font-size: 15px;
+}
