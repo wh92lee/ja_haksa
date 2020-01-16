@@ -57,16 +57,73 @@
 		});
 	});
 </script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+ <script type="text/javascript">
+
+
+    /** 
+    onchange event handler for the file input field.
+    It emplements very basic validation using the file extension.
+    If the filename passes validation it will show the image using it's blob URL  
+    and will hide the input field and show a delete button to allow the user to remove the image
+    */
+
+    $('#pprofile').on('change', function() {
+        
+        ext = $(this).val().split('.').pop().toLowerCase(); //확장자
+        
+        //배열에 추출한 확장자가 존재하는지 체크
+        if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+            resetFormElement($(this)); //폼 초기화
+            window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
+        } else {
+            file = $('#pprofile').prop("files")[0];
+            blobURL = window.URL.createObjectURL(file);
+            $('#profile img').attr('src', blobURL);
+            $('#profile').slideDown(); //업로드한 이미지 미리보기 
+            $(this).slideUp(); //파일 양식 감춤
+        }
+    });
+
+    /**
+    onclick event handler for the delete button.
+    It removes the image, clears and unhides the file input field.
+    */
+    $('#profile a').bind('click', function() {
+        resetFormElement($('#pprofile')); //전달한 양식 초기화
+        $('#pprofile').slideDown(); //파일 양식 보여줌
+        $(this).parent().slideUp(); //미리 보기 영역 감춤
+        return false; //기본 이벤트 막음
+    });
+        
+
+    /** 
+    * 폼요소 초기화 
+    * Reset form element
+    * 
+    * @param e jQuery object
+    */
+    function resetFormElement(e) {
+        e.wrap('<form>').closest('form').get(0).reset(); 
+        //리셋하려는 폼양식 요소를 폼(<form>) 으로 감싸고 (wrap()) , 
+        //요소를 감싸고 있는 가장 가까운 폼( closest('form')) 에서 Dom요소를 반환받고 ( get(0) ),
+        //DOM에서 제공하는 초기화 메서드 reset()을 호출
+        e.unwrap(); //감싼 <form> 태그를 제거
+    }
+    </script>
 </head>
 <body>
 	<div class="wrap">
 		<form action="jw_joinPro.do" method="post" name="frm" onsubmit="return chk()" id="join_form">
 			<input type="hidden" id="idChkVal" name="idChkVal" value="0">
 			<div id="j_container" role="main">
+				<h2>회원가입</h2>
+				<hr>
+				<p>기본정보</p>
 				<div class="left_info">
 					<div class="join_form">
 						<div class="left_title">
-							아이디 :
+							아이디
 						</div>
 						<div class="left_content">
 							<input type="text" name="pid" id="pid" required="required">
@@ -74,7 +131,7 @@
 					</div>
 					<div class="join_form">
 						<div class="left_title">
-							비밀번호 : 
+							비밀번호 
 						</div>
 						<div class="left_content">
 							<input type="password" name="ppw" id="ppw" required="required">
@@ -82,7 +139,7 @@
 					</div>
 					<div class="join_form">
 						<div class="left_title">
-							비밀번호 확인 : 
+							비밀번호 확인  
 						</div>
 						<div class="left_content">
 							<input type="password" name="ppw2" id="ppw2" required="required">
@@ -90,15 +147,7 @@
 					</div>
 					<div class="join_form">
 						<div class="left_title">
-							이름 : 
-						</div>
-						<div class="left_content">
-							<input type="text" name="pname" id="pname" required="required">
-						</div>
-					</div>
-					<div class="join_form">
-						<div class="left_title">
-							생년월일 : 
+							생년월일 
 						</div>
 						<div class="left_content">
 							<input type="text" name="pbirth" id="pbirth" required="required" placeholder="예시 : 990707">
@@ -106,48 +155,122 @@
 					</div>
 					<div class="join_form">
 						<div class="left_title">
-							연락처 : 
+							연락처  
 						</div>
 						<div class="left_content"> 
 							<input type="tel" name="ptel" id="ptel" required="required" patten="\d{2,3}-\d{3-4}-\d{4}"	placeholder="xxx-xxxx-xxxx">
 						</div> 
 					</div>
+					<div class="join_form">
+						<div class="left_title">
+							주소 
+						</div>
+						<div class="left_content">
+							<input type="text" name="paddress" id="paddress" required="required">
+						</div> 
+					</div>
+					<div class="join_form">
+						<div class="left_title">
+							E-mail  
+						</div>
+						<div class="left_content">
+							<input type="email" name="pemail" id="pemail" required="required"/>
+						</div>
+					</div>
 				</div>
 				<div class="right_info">
-					<div>
-						이미지 보여지는 창
+					<div class="profile_form">
+						<div id="profile">
+							<img src="#">
+							 <br />
+       						 <a href="#">Remove</a>
+						</div>
 					</div>
 					<div class="join_form">
 						<div class="right_title">
-							프로필사진 : 
+							프로필사진  
 						</div>
 						<div class="right_content">
-							<input type="text" name="pprofile" id="pprofile">
+							<input type="file" name="pprofile" id="pprofile"/>
 						</div>
 					</div>
 					<div class="join_form">
 						<div class="right_title">
-							성별 : 
+							이름 
+						</div>
+						<div class="right_content">
+							<input type="text" name="pname" id="pname" required="required">
+						</div>
+					</div>
+					<div class="join_form">
+						<div class="right_title">
+							성별 
 						</div>
 						<div class="right_content">
 							<input type="radio" name="pgender" value="M">남자 <input type="radio" name="pgender" value="W">여자
 						</div>
 					</div>
-					<div class="join_form">
-						<div class="right_title">
-							주소 : 
+				</div>
+				<div class="class_choice">
+					<p>훈련과정선택</p>
+					<div class="class_form">
+						<div class="left_name">
+							과정명
 						</div>
-						<div class="right_content">
-							<input type="text" name="paddress" id="paddress" required="required">
-						</div> 
+						<div class="right_name">
+							<select id ="b_code" name="b_code" onchange="selb_code()">
+								<option value=""> 신청하신 훈련과정을 선택해주세요.</option>
+								<%-- <c:forEach var="bmenu" items="">
+									<option value="">가나다라마바사</option>
+								</c:forEach> --%>
+							</select>
+						</div>
 					</div>
-					<div class="join_form">
-						<div class="right_title">
-							E-mail : 
+					<div class="class_left">
+						<div class="class_form">
+							<div class="left_title">
+								교육시작일
+							</div>
+							<div class="left_content">
+								<input type="text" name="pname" id="pname" value="2020-08-20" disabled>
+							</div>
 						</div>
-						<div class="right_content">
-							<input type="email" name="pemail" id="pemail" required="required"/>
+						<div class="class_form">
+							<div class="left_title">
+								모집정원
+							</div>
+							<div class="left_content">
+								<input type="text" name="pname" id="pname" value="30명" disabled>
+							</div>
 						</div>
+					</div>
+					<div class="class_right">
+						<div class="class_form">
+							<div class="right_title">
+								교육종료일
+							</div>
+							<div class="right_content">
+								<input type="text" name="pname" id="pname" value="2020-03-04" disabled>
+							</div>
+						</div>
+						<div class="class_form">
+							<div class="left_title">
+								현재모집인원
+							</div>
+							<div class="left_content">
+								<input type="text" name="pname" id="pname" value="17명" disabled>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="foot">
+					<div class="info_text">
+						<span> 원활한 취업지원을 위해 가입 후에 개인정보 수정에서 상세정보까지 입력바랍니다.</span>
+					</div>
+					<div class="button">
+						<input type="submit" value="가입완료"/> &nbsp;&nbsp;&nbsp;
+						<input type="reset" value="다시작성"/>  &nbsp;&nbsp;&nbsp;
+						<input type="button" value="취소" onclick="history.back(-1);">
 					</div>
 				</div>
 			</div>

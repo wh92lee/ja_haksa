@@ -1,31 +1,21 @@
 @charset "UTF-8";
-.btnColor {
-border: 0;
-	color: white;
-	background-color: #3DB7CC;
-	background-position: - -47px;
-	height: 29px;
-	width: 120px;
-	font-size: 15px;
-	margin-top: 5px;
-}
-.btnColor1{
-	margin-top: 15px;
-	border: 0;
-	color: white;
-	background-color: #3DB7CC;
-	background-position: - -47px;
-	height: 29px;
-	width: 80px;
-	font-size: 15px;
-}
+
 #j_container{
 	position: absolute;
-    top: 20%;
+    top: 5%;
     left: 25%;
     width: 700px;
-    height: 400px;
+    height: 680px;
     border: 1px solid;
+}
+h2{
+	text-align: center;
+}
+
+#j_container p{
+	margin-top: 0px;
+    margin-bottom: 5px;
+    margin-left: 10px;
 }
 
 .left_info{
@@ -36,20 +26,170 @@ border: 0;
 }
 
 .right_info{
-	widthL:350px;
+	width:350px;
 	float:left;
 	text-align:left;
 	height: 300px;
 }
 
 .join_form .left_title{
-	width:115px;
+	width:120px;
 	float:left;
-	height: 50px;
+	height: 30px;
+	text-align: center;
+	padding-left: 5px;
+	padding-top:10px;
+	background-color: #ebefae91;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
 } 
 
 .join_form .left_content{
-	width:235px;
+	width:215px;
 	float:left;
-	height: 50px;
+	height: 30px;
+	padding-top:10px;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+}
+
+.join_form .right_title{
+	width:120px;
+	float:left;
+	height: 30px;
+	text-align: center;
+	padding-left: 5px;
+	padding-top:10px;
+	background-color: #ebefae91;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+} 
+
+.join_form .right_content{
+	width:215px;
+	float:left;
+	height: 30px;
+	padding-top:10px;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+}
+
+.profile_form{
+	width: 350px;
+	height:168px;
+	float:left;
+}
+
+#profile{
+	width: 120px;
+	height:150px;
+	float:left;
+	text-align: center;
+	border: 1px solid gray;
+	position: relative;
+    top: 5%;
+    left: 30%;
+     display:none;
+}
+
+.class_choice{
+	float:left;
+	width:700px;
+	height:180px;
+}
+
+.class_form .left_name{
+	width:120px;
+	float:left;
+	height: 30px;
+	text-align: center;
+	padding-left: 5px;
+	padding-top:10px;
+	background-color: #ebefae91;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+} 
+
+.class_form .right_name{
+	width:550px;
+	float:left;
+	height: 30px;
+	padding-top:10px;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+}
+
+.class_left{
+	width: 350px;
+    float: left;
+    text-align: left;
+    height: 300px;
+}
+
+.class_right{
+	width:350px;
+	float:left;
+	text-align:left;
+	height: 300px;
+}
+
+
+.class_form  .left_title{
+	width:120px;
+	float:left;
+	height: 30px;
+	text-align: center;
+	padding-left: 5px;
+	padding-top:10px;
+	background-color: #ebefae91;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+} 
+
+.class_form .left_content{
+	width:215px;
+	float:left;
+	height: 30px;
+	padding-top:10px;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+}
+
+.class_form  .right_title{
+	width:120px;
+	float:left;
+	height: 30px;
+	text-align: center;
+	padding-left: 5px;
+	padding-top:10px;
+	background-color: #ebefae91;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+} 
+
+.class_form .right_content{
+	width:215px;
+	float:left;
+	height: 30px;
+	padding-top:10px;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+}
+
+.foot{
+	margin-top: 10px;
+	text-align: center;
+	float:left;
+	width:700px;
+}
+.info_text span{
+	text-align: center;
+	
+}
+.foot .button{
+	margin-top: 10px;
+}
+
+input, select{
+	margin-left:10px;
 }
