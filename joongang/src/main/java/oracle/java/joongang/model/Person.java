@@ -8,15 +8,17 @@ public class Person {
 	private String ppw;
 	private String pname;
 	private String pprofile;
-	private String ptel; 
+	private String ptel;
 	private String pbirth;
 	private String pgender;
 	private String paddress;
-	private String pemail;
-	private String class_name; 
-	private String class_start;
-	private String class_end;
-	private int class_method;
+	private int room_num;
+	private int class_num;
+	private String alive;
+	private int salary;
+	private int major;
+	private int exp;
+	private int diploma;
 	private Date reg_date;
 	
 	public int getPnum() {
@@ -73,35 +75,47 @@ public class Person {
 	public void setPaddress(String paddress) {
 		this.paddress = paddress;
 	}
-	public String getPemail() {
-		return pemail;
+	public int getRoom_num() {
+		return room_num;
 	}
-	public void setPemail(String pemail) {
-		this.pemail = pemail;
+	public void setRoom_num(int room_num) {
+		this.room_num = room_num;
 	}
-	public String getClass_name() {
-		return class_name;
+	public int getClass_num() {
+		return class_num;
 	}
-	public void setClass_name(String class_name) {
-		this.class_name = class_name;
+	public void setClass_num(int class_num) {
+		this.class_num = class_num;
 	}
-	public String getClass_start() {
-		return class_start;
+	public String getAlive() {
+		return alive;
 	}
-	public void setClass_start(String class_start) {
-		this.class_start = class_start;
+	public void setAlive(String alive) {
+		this.alive = alive;
 	}
-	public String getClass_end() {
-		return class_end;
+	public int getSalary() {
+		return salary;
 	}
-	public void setClass_end(String class_end) {
-		this.class_end = class_end;
+	public void setSalary(int salary) {
+		this.salary = salary;
 	}
-	public int getClass_method() {
-		return class_method;
+	public int getMajor() {
+		return major;
 	}
-	public void setClass_method(int class_method) {
-		this.class_method = class_method;
+	public void setMajor(int major) {
+		this.major = major;
+	}
+	public int getExp() {
+		return exp;
+	}
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
+	public int getDiploma() {
+		return diploma;
+	}
+	public void setDiploma(int diploma) {
+		this.diploma = diploma;
 	}
 	public Date getReg_date() {
 		return reg_date;
@@ -109,4 +123,5 @@ public class Person {
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
+	
 }

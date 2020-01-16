@@ -4,10 +4,12 @@
 <configuration>
   <typeAliases>
       <typeAlias  alias="Person"  type="oracle.java.joongang.model.Person"/>
+      <typeAlias  alias="Class"  type="oracle.java.joongang.model.Class"/>
   </typeAliases>
 
   <mappers>
       <mapper resource="mybatis/Person.xml"/>
+      <mapper resource="mybatis/Class.xml"/>
   </mappers>
 
 

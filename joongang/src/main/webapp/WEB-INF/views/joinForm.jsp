@@ -111,6 +111,22 @@
         e.unwrap(); //감싼 <form> 태그를 제거
     }
     </script>
+    <script type="text/javascript">
+	    function sel_class(){
+	      	var classnum = document.getElementById('class_num').value;
+	    	$.ajax({
+	    		url:"<%=context%>/getClassInfo.do",
+	    		data:{class_num:classnum},
+	    		dataType:'json',
+	    		success:function(data){
+	    			$('#class_start').val(data.class_start);
+	    			$('#class_end').val(data.class_end);
+					$('#max_person').val(data.max_person);
+					$('#now_person').val(data.now_person);
+	    		}
+	    	});
+	    };
+    </script>
 </head>
 <body>
 	<div class="wrap">
@@ -218,11 +234,11 @@
 							과정명
 						</div>
 						<div class="right_name">
-							<select id ="b_code" name="b_code" onchange="selb_code()">
+							<select id ="class_num" name="class_num" onchange="sel_class()">
 								<option value=""> 신청하신 훈련과정을 선택해주세요.</option>
-								<%-- <c:forEach var="bmenu" items="">
-									<option value="">가나다라마바사</option>
-								</c:forEach> --%>
+								<c:forEach var="classlist" items="${classlist }">
+									<option value="${classlist.class_num}">${classlist.class_name }</option>
+								</c:forEach>
 							</select>
 						</div>
 					</div>
@@ -232,7 +248,7 @@
 								교육시작일
 							</div>
 							<div class="left_content">
-								<input type="text" name="pname" id="pname" value="2020-08-20" disabled>
+								<input type="text" name="class_start" id="class_start" disabled>
 							</div>
 						</div>
 						<div class="class_form">
@@ -240,7 +256,7 @@
 								모집정원
 							</div>
 							<div class="left_content">
-								<input type="text" name="pname" id="pname" value="30명" disabled>
+								<input type="text" name="max_person" id="max_person" disabled>
 							</div>
 						</div>
 					</div>
@@ -250,7 +266,7 @@
 								교육종료일
 							</div>
 							<div class="right_content">
-								<input type="text" name="pname" id="pname" value="2020-03-04" disabled>
+								<input type="text" name="class_end" id="class_end" disabled>
 							</div>
 						</div>
 						<div class="class_form">
@@ -258,7 +274,7 @@
 								현재모집인원
 							</div>
 							<div class="left_content">
-								<input type="text" name="pname" id="pname" value="17명" disabled>
+								<input type="text" name="now_person" id="now_person" disabled>
 							</div>
 						</div>
 					</div>
