@@ -3,11 +3,13 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <typeAliases>
-      <typeAlias  alias="Person"  type="oracle.java.joongang.model.Person"/>
+      <!-- <typeAlias  alias="Person"  type="oracle.java.joongang.model.Person"/>
+       --><typeAlias  alias="Interview"  type="oracle.java.joongang.model.Interview"/>
   </typeAliases>
 
   <mappers>
-      <mapper resource="mybatis/Person.xml"/>
+      <!-- <mapper resource="mybatis/Person.xml"/> -->
+      <mapper resource="mybatis/Interview.xml"/>
   </mappers>
 
 

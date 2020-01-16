@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Interview">
+	<resultMap id="InterviewResult" type="Interview">
+    <result property="pnum" column="pnum"/>
+    <result property="interview_num" column="interview_num"/>
+    <result property="teacher_num" column="teacher_num"/>
+    <result property="interview_content" column="interview_content"/>
+    <result property="interview_count" column="interview_count"/>
+    <result property="reg_date" column="reg_date"/>
+  </resultMap> 
+  
+  <insert id="insert" parameterType="Interview">
+	 insert into interview values (#{pnum},#{interview_num},#{teacher_num},#{interview_content},
+	 #{interview_count},#{reg_date} ) 
+  </insert>
+  
+  <select id="list" parameterType="Interview" resultMap="InterviewResult">
+  	select * from person 
+  </select>
+  
+  <select id="total" resultType="int">
+  	select count(*) from person
+  </select> 
+  
+</mapper>

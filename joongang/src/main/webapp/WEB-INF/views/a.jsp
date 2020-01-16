@@ -7,11 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-//response.sendRedirect("login.do");
-response.sendRedirect("sjwriteInterviewForm.do");
-//response.sendRedirect("a.do");
-//response.sendRedirect("list.do");
-%>
+a.jsp
+<a href="sjwriteInterviewForm.do">입력</a>
 </body>
 </html>
