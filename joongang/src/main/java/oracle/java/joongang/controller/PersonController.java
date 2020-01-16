@@ -28,4 +28,11 @@ public class PersonController {
     	System.out.println("............ JoinForm Start ...........");
     return "joinForm"; 	
     }
+    
+    @RequestMapping(value="idCheck")
+    public int idCheck(String id) {
+    	
+    	
+    	return 0;
+    }
 }
