@@ -19,6 +19,20 @@ public class PersonController {
     
     @RequestMapping(value="login")
     public String login() {
+    	System.out.println("............ main login Start .........");
     return "login"; 	
+    }
+    
+    @RequestMapping(value="joinForm")
+    public String joinForm() {
+    	System.out.println("............ JoinForm Start ...........");
+    return "joinForm"; 	
+    }
+    
+    @RequestMapping(value="idCheck")
+    public int idCheck(String id) {
+    	
+    	
+    	return 0;
     }
 }

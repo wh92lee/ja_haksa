@@ -1,5 +1,12 @@
 @charset "UTF-8";
 #container {
-	width: 500px;
-	height:300px;
+	position:absolute; top:20%; left:25%;
+	width: 900px;
+	height:400px;
+	border: 1px solid;
+}
+
+.login_form {
+	margin-left: 10px;
+	position:absolute; bottom:5px;"
 }
