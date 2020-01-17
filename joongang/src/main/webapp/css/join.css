@@ -193,3 +193,7 @@ h2{
 #j_container input, select{
 	margin-left:10px;
 }
+
+input#pid{
+	width: 110px;
+}

@@ -142,7 +142,8 @@
 							아이디
 						</div>
 						<div class="left_content">
-							<input type="text" name="pid" id="pid" required="required">
+							<input type="text" name="pid" id="pid" required="required" maxlength="15"> 
+							<input type="button" id="idChk" name="idChk" value="중복확인" > 
 						</div>
 					</div>
 					<div class="join_form">
