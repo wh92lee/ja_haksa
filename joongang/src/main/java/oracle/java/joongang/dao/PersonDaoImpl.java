@@ -17,4 +17,16 @@ public class PersonDaoImpl implements PersonDao {
 		return session.insert("student_join", person);
 	}
 
+	@Override
+	public int login(Person person) {
+		// TODO Auto-generated method stub
+		return session.selectOne("login", person);
+	}
+
+	@Override
+	public Person gubun(Person person) {
+		// TODO Auto-generated method stub
+		return session.selectOne("gubun", person);
+	}
+
 }

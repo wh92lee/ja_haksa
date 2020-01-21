@@ -28,10 +28,28 @@ public class PersonServiceImpl implements PersonService {
 		System.out.println("10 ->"+person.getPname());
 		System.out.println("11 ->"+person.getPtel());
 		System.out.println("12 ->"+person.getPgender());
+		System.out.println("15 ->" + person.getClass_num());
 		System.out.println("13 ->"+person.getAlive());
 		System.out.println("14 ->"+person.getReg_date());
 		
 		return pd.join(person);
+	}
+
+	@Override
+	public int login(Person person) {
+		System.out.println("1 ->"+person.getGubun());
+		System.out.println("2 ->"+person.getYymm());
+		System.out.println("3 ->"+person.getPnum());
+		System.out.println("4 ->"+person.getPid());
+		System.out.println("5 ->"+person.getPpw());
+		return pd.login(person);
+	}
+
+	@Override
+	public Person gubun(Person person) {
+		System.out.println("4 ->"+person.getPid());
+		System.out.println("5 ->"+person.getPpw());
+		return pd.gubun(person);
 	}
 
 }

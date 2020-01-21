@@ -144,9 +144,6 @@
     			}
     		}
     	}
-    	function only_num(){	
-    		$('#age').keypress(function (event) { if (event.which && (event.which <= 47 || event.which >= 58) && event.which != 8) { event.preventDefault(); } });
-    	}
     </script>
     <script type="text/javascript">
 	    function sel_class(){
@@ -212,7 +209,7 @@
 							나이  
 						</div>
 						<div class="left_content"> 
-							<input type="text" name="age" id="age" required="required" style="width:30px;" onchange="only_num()"> 세
+							<input type="number" name="age" id="age" required="required" style="width:40px;"> 세
 						</div> 
 					</div>
 					<div class="join_form">

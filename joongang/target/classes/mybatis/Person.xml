@@ -15,13 +15,16 @@
     <result property="comm"      column="comm"/>
     <result property="deptno"    column="deptno"/>
   </resultMap>
-   <select id="login" parameterType="Person" resultMap="PersonResult">
-      select * person where pid=#{pid} and ppw=#{ppw} and alive="A";  	
+   <select id="login" parameterType="String" resultType="int">
+      select * from person where pid=#{pid} and ppw=#{ppw} and alive='A'  	
    </select>
-   <select id="student_join" resultType="Person"> 
-     insert into person(gubun, yymm, pnum, pid, ppw, pbirth, age, pemail, paddress, pname, ptel, pgender, class_num)
-     	values(1,select to_number(to_char(sysdate, 'yymm')) from dual,SEQ_STUDENT.NEXTVAL, #{pid}, #{ppw}, #{pbirth}, #{age}, #{pemail}, #{paddress}, #{pname}, #{ptel}, #{pgender}, #{class_num})
+   <select id="gubun" parameterType="String" resultType="Person">
+   		select * from person where pid=#{pid} and ppw=#{ppw} and alive='A'
    </select>
+   <insert id="student_join" parameterType="Person"> 
+     insert into person(gubun, yymm, pnum, pid, ppw, pbirth, age, pemail, paddress, pname, ptel, pgender, class_num, alive, reg_date)
+     	values(1,(select to_number(to_char(sysdate, 'yymm'))yymm from dual),SEQ_STUDENT.NEXTVAL, #{pid}, #{ppw}, #{pbirth}, #{age}, #{pemail}, #{paddress}, #{pname}, #{ptel}, #{pgender}, #{class_num}, 'R',sysdate)
+   </insert>
    
   
 </mapper>
