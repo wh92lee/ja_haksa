@@ -18,8 +18,8 @@ import oracle.java.joongang.service.PersonService;
 @Controller
 public class PersonController {
 	
-//	@Autowired
-//	private PersonService ps;
+	@Autowired
+	private PersonService ps;
 	
 	@Autowired
 	private ClassService cs;
@@ -47,17 +47,24 @@ public class PersonController {
     	return 0;
     }
         
-   // @RequestMapping(value="getClassInfo", produces="application/text;charset=UTF-8")
+   // @RequestMapping(value="getClassInfo", produces="application/text;charset=UTF-8") 
+   // 단어 하나값만 가져오는게 아닐때에는 produces 사용시 값을 가져오지 않는다.
     @RequestMapping(value="getClassInfo")
     @ResponseBody
    	public Class getClassInfo(int class_num, Model model) {
-    	/*System.out.println("classnum ->" + classnum);
-    	int class_num = Integer.parseInt(classnum);*/
     	
-    	/*Class  cls = null; 
-    	
-    	cls=cs.classInfo(class_num);*/
    		return cs.classInfo(class_num);
    	}
+    
+    @RequestMapping(value="joinPro")
+    public String joinPro(Person person, Model model) {
+    	System.out.println("PersonController joinPro start .....");
+    	int result = ps.join(person);
+		if (result > 0) return "redirect:login.do";
+		else {
+			model.addAttribute("msg","회원가입 실패 확인해 보세요");
+			return "forward:joinForm.do";
+		}
+    }
    
 }

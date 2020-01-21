@@ -16,13 +16,11 @@
     <result property="deptno"    column="deptno"/>
   </resultMap>
    <select id="login" parameterType="Person" resultMap="PersonResult">
-      select * from Person where pid = #{pid} and ppw = #{ppw}
-      select * from (select rownum rn, a.* from (select * from emp
-    	 order by empno) a) where rn between #{start} and
-    	 #{end}   	
+      select * person where pid=#{pid} and ppw=#{ppw} and alive="A";  	
    </select>
-   <select id="total" resultType="int"> 
-       select Count(*) From emp
+   <select id="student_join" resultType="Person"> 
+     insert into person(gubun, yymm, pnum, pid, ppw, pbirth, age, pemail, paddress, pname, ptel, pgender, class_num)
+     	values(1,select to_number(to_char(sysdate, 'yymm')) from dual,SEQ_STUDENT.NEXTVAL, #{pid}, #{ppw}, #{pbirth}, #{age}, #{pemail}, #{paddress}, #{pname}, #{ptel}, #{pgender}, #{class_num})
    </select>
    
   

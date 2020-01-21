@@ -5,7 +5,7 @@
     top: 5%;
     left: 25%;
     width: 700px;
-    height: 680px;
+    height: 730px;
     border: 1px solid;
 }
 h2{
@@ -22,14 +22,14 @@ h2{
 	width: 350px;
     float: left;
     text-align: left;
-    height: 300px;
+    height: 350px;
 }
 
 .right_info{
 	width:350px;
 	float:left;
 	text-align:left;
-	height: 300px;
+	height: 350px;
 }
 
 .join_form .left_title{
@@ -196,4 +196,10 @@ h2{
 
 input#pid{
 	width: 110px;
+}
+input#ppw{
+	width: 120px;
+}
+input#ppw2{
+	width: 120px;
 }

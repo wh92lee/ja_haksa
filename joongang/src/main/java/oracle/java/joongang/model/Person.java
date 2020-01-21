@@ -3,6 +3,8 @@ package oracle.java.joongang.model;
 import java.util.Date;
 
 public class Person {
+	private int gubun;
+	private int yymm;
 	private int pnum;
 	private String pid;
 	private String ppw;
@@ -10,8 +12,12 @@ public class Person {
 	private String pprofile;
 	private String ptel;
 	private String pbirth;
+	private int Age;
 	private String pgender;
+	private int bcity;
+	private int mcity;
 	private String paddress;
+	private String pemail;
 	private int room_num;
 	private int class_num;
 	private String alive;
@@ -19,8 +25,21 @@ public class Person {
 	private int major;
 	private int exp;
 	private int diploma;
+	private int ppeval;
+	private int pteval;
 	private Date reg_date;
-	
+	public int getGubun() {
+		return gubun;
+	}
+	public void setGubun(int gubun) {
+		this.gubun = gubun;
+	}
+	public int getYymm() {
+		return yymm;
+	}
+	public void setYymm(int yymm) {
+		this.yymm = yymm;
+	}
 	public int getPnum() {
 		return pnum;
 	}
@@ -69,11 +88,29 @@ public class Person {
 	public void setPgender(String pgender) {
 		this.pgender = pgender;
 	}
+	public int getBcity() {
+		return bcity;
+	}
+	public void setBcity(int bcity) {
+		this.bcity = bcity;
+	}
+	public int getMcity() {
+		return mcity;
+	}
+	public void setMcity(int mcity) {
+		this.mcity = mcity;
+	}
 	public String getPaddress() {
 		return paddress;
 	}
 	public void setPaddress(String paddress) {
 		this.paddress = paddress;
+	}
+	public String getPemail() {
+		return pemail;
+	}
+	public void setPemail(String pemail) {
+		this.pemail = pemail;
 	}
 	public int getRoom_num() {
 		return room_num;
@@ -117,11 +154,30 @@ public class Person {
 	public void setDiploma(int diploma) {
 		this.diploma = diploma;
 	}
+	public int getPpeval() {
+		return ppeval;
+	}
+	public void setPpeval(int ppeval) {
+		this.ppeval = ppeval;
+	}
+	public int getPteval() {
+		return pteval;
+	}
+	public void setPteval(int pteval) {
+		this.pteval = pteval;
+	}
 	public Date getReg_date() {
 		return reg_date;
 	}
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
+	public int getAge() {
+		return Age;
+	}
+	public void setAge(int age) {
+		Age = age;
+	}
+	
 	
 }

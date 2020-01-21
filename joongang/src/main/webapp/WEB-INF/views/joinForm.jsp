@@ -17,7 +17,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript">
-	function chk() {
+	/* function chk() {
 		if (frm.idChkVal.value != "1") { //idChkVal.value = 1이 아니라면 중복체크를 안한것 default value = 0
 			alert("아이디중복체크를 하셔야합니땅!");
 			return false;
@@ -28,7 +28,7 @@
 			return false;
 		}
 		return true;
-	}
+	} */
 </script>
 <script type="text/javascript">
 	var contextPath='${pageContext.request.contextPath}';
@@ -112,6 +112,43 @@
     }
     </script>
     <script type="text/javascript">
+
+    	function isSame(){
+    		 var ppw = document.getElementById('ppw').value;
+    		var ppw2 = document.getElementById('ppw2').value;
+    		if(ppw.length < 6 || ppw.length > 16){
+    			alert('비밀번호는 6자리 ~ 15자리만 사용 가능합니다.');
+    			document.getElementById('ppw').value='';
+    			document.getElementById('same').innerHTML='';
+    			return false;
+    		}
+    	}
+    	
+    	function isSame2(){
+    		 var ppw = document.getElementById('ppw').value;
+    		var ppw2 = document.getElementById('ppw2').value;
+    		if(ppw2.length < 6 || ppw2.length > 16){
+    			alert('비밀번호는 6자리 ~ 15자리만 사용 가능합니다.');
+    			document.getElementById('ppw2').value='';
+    			document.getElementById('same').innerHTML='';
+    			return false;
+    		}
+    		if(ppw!='' &&ppw2!=''){
+    			if(ppw==ppw2){
+    				document.getElementById('same').innerHTML='일치';
+    				document.getElementById('same').style.color='blue';
+    			}
+    			else{
+    				document.getElementById('same').innerHTML='불일치';
+    				document.getElementById('same').style.color='red';
+    			}
+    		}
+    	}
+    	function only_num(){	
+    		$('#age').keypress(function (event) { if (event.which && (event.which <= 47 || event.which >= 58) && event.which != 8) { event.preventDefault(); } });
+    	}
+    </script>
+    <script type="text/javascript">
 	    function sel_class(){
 	      	var classnum = document.getElementById('class_num').value;
 	    	$.ajax({
@@ -130,7 +167,7 @@
 </head>
 <body>
 	<div class="wrap">
-		<form action="jw_joinPro.do" method="post" name="frm" onsubmit="return chk()" id="join_form">
+		<form action="joinPro.do" method="post" name="frm" onsubmit="return chk()" id="join_form">
 			<input type="hidden" id="idChkVal" name="idChkVal" value="0">
 			<div id="j_container" role="main">
 				<h2>회원가입</h2>
@@ -151,7 +188,7 @@
 							비밀번호 
 						</div>
 						<div class="left_content">
-							<input type="password" name="ppw" id="ppw" required="required">
+							<input type="password" name="ppw" id="ppw" onchange="isSame()" required="required">
 						</div>
 					</div>
 					<div class="join_form">
@@ -159,7 +196,7 @@
 							비밀번호 확인  
 						</div>
 						<div class="left_content">
-							<input type="password" name="ppw2" id="ppw2" required="required">
+							<input type="password" name="ppw2" id="ppw2" onchange="isSame2()" required="required">&nbsp;&nbsp;<span id="same"></span>
 						</div>
 					</div>
 					<div class="join_form">
@@ -172,18 +209,10 @@
 					</div>
 					<div class="join_form">
 						<div class="left_title">
-							연락처  
+							나이  
 						</div>
 						<div class="left_content"> 
-							<input type="tel" name="ptel" id="ptel" required="required" patten="\d{2,3}-\d{3-4}-\d{4}"	placeholder="xxx-xxxx-xxxx">
-						</div> 
-					</div>
-					<div class="join_form">
-						<div class="left_title">
-							주소 
-						</div>
-						<div class="left_content">
-							<input type="text" name="paddress" id="paddress" required="required">
+							<input type="text" name="age" id="age" required="required" style="width:30px;" onchange="only_num()"> 세
 						</div> 
 					</div>
 					<div class="join_form">
@@ -193,6 +222,33 @@
 						<div class="left_content">
 							<input type="email" name="pemail" id="pemail" required="required"/>
 						</div>
+					</div>
+					<div class="join_form">
+						<div class="left_title">
+							주소 
+						</div>
+						<div class="left_content">
+							<select id ="bcity_num" name="bcity_num" onchange="b_city()">
+								<option value=""> 시 선택 </option>
+								<%-- <c:forEach var="classlist" items="${classlist }">
+									<option value="${classlist.class_num}">${classlist.class_name }</option>
+								</c:forEach> --%>
+							</select>
+							<select id ="mcity_num" name="mcity_num" onchange="m_city()">
+								<option value=""> 구 선택 </option>
+								<%-- <c:forEach var="classlist" items="${classlist }">
+									<option value="${classlist.class_num}">${classlist.class_name }</option>
+								</c:forEach> --%>
+							</select>
+						</div> 
+					</div>
+					<div class="join_form">
+						<div class="left_title">
+							상세주소 
+						</div>
+						<div class="left_content">
+							<input type="text" name="paddress" id="paddress" required="required">
+						</div> 
 					</div>
 				</div>
 				<div class="right_info">
@@ -220,11 +276,19 @@
 						</div>
 					</div>
 					<div class="join_form">
+						<div class="left_title">
+							연락처  
+						</div>
+						<div class="left_content"> 
+							<input type="tel" name="ptel" id="ptel" required="required" patten="\d{2,3}-\d{3-4}-\d{4}"	placeholder="xxx-xxxx-xxxx">
+						</div> 
+					</div>
+					<div class="join_form">
 						<div class="right_title">
 							성별 
 						</div>
 						<div class="right_content">
-							<input type="radio" name="pgender" value="M">남자 <input type="radio" name="pgender" value="W">여자
+							<input type="radio" name="pgender" value=1 checked = "checked">남자 <input type="radio" name="pgender" value=2>여자
 						</div>
 					</div>
 				</div>
