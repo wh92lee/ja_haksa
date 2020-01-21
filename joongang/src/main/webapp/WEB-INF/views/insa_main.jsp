@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-response.sendRedirect("login.do");
-	//response.sendRedirect("chatbot.do");
-%>
+인사 메인 페이지입니다.
+작업부탁드립니다.
+
 </body>
 </html>

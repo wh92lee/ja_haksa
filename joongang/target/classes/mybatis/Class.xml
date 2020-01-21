@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Class">
+  <!-- Use type aliases to avoid typing the full classname every time. -->
+  <resultMap id="ClassResult" type="Class">
+  	<result property="class_num"    column="class_num"/>
+  	<result property="room_num"    column="room_num"/>
+  	<result property="class_name"    column="class_name"/>
+  	<result property="class_start"    column="class_start"/>
+  	<result property="class_end"    column="class_end"/>
+  	<result property="max_person"    column="max_person"/>
+  	<result property="now_person"    column="now_person"/>
+  	<result property="reg_date"    column="reg_date"/>
+  </resultMap>
+   <select id="classList" parameterType="Class" resultMap="ClassResult">
+     select class_num, class_name from class order by class_num desc
+   </select>
+   
+   <select id="classInfo" parameterType="int" resultType="Class">
+		select * from class where class_num=#{class_num}
+	</select>
+</mapper>

@@ -32,7 +32,7 @@
 		<div class="test">
 			<div>로그인하는 페이지 입니다.</div>
 			<div class="login_form">
-				<form action="loginPro" name="frm" method="post">
+				<form action="loginPro.do" name="frm" method="post">
 				아이디 : <input type="text" name="pid" id="pid"  onsubmit="return idchk()"> &nbsp;&nbsp;
 				비밀번호 : <input type="password" name="ppw" id="ppw" onsubmit="return passwdchk()" > &nbsp;
 					<input type="submit" value="로그인"> &nbsp;&nbsp;&nbsp;&nbsp;
