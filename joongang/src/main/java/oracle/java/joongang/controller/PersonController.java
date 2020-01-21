@@ -30,9 +30,7 @@ public class PersonController {
     }
     
     @RequestMapping(value="idCheck")
-    public int idCheck(String id) {
-    	
-    	
+    public int idCheck(String id) {    	
     	return 0;
     }
 }

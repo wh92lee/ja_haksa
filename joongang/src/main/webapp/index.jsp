@@ -8,7 +8,8 @@
 </head>
 <body>
 <%
-	response.sendRedirect("login.do");
+//	response.sendRedirect("login.do");
+	response.sendRedirect("chatbot.do");
 %>
 </body>
 </html>

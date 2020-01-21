@@ -4,10 +4,13 @@
 <configuration>
   <typeAliases>
       <typeAlias  alias="Person"  type="oracle.java.joongang.model.Person"/>
+      <typeAlias alias="ChatBot" type="oracle.java.joongang.model.ChatBot"/>
   </typeAliases>
 
   <mappers>
       <mapper resource="mybatis/Person.xml"/>
+      <mapper resource="mybatis/ChatBot.xml"/>
+      
   </mappers>
 
 
