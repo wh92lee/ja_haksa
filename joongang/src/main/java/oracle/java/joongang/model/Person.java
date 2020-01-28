@@ -17,8 +17,23 @@ public class Person {
 	private String class_start;
 	private String class_end;
 	private int class_method;
+	private int ppeval;
+	private int pteval;
 	private Date reg_date;
 	
+	
+	public int getPpeval() {
+		return ppeval;
+	}
+	public void setPpeval(int ppeval) {
+		this.ppeval = ppeval;
+	}
+	public int getPteval() {
+		return pteval;
+	}
+	public void setPteval(int pteval) {
+		this.pteval = pteval;
+	}
 	public int getPnum() {
 		return pnum;
 	}

@@ -3,12 +3,69 @@ package oracle.java.joongang.model;
 public class Interview {
 
 	private int pnum;
+	private int gubun;
+	private int yymm;
 	private int interview_num;
 	private int teacher_num;
 	private int interview_content;
 	private int interview_count;
 	private String reg_date;
+	private String pemail;
+	private String pname;
+	private String pid;
+	private String class_num; 
+	private int ppeval;
+	private int pteval;
 	
+	
+	public int getPpeval() {
+		return ppeval;
+	}
+	public void setPpeval(int ppeval) {
+		this.ppeval = ppeval;
+	}
+	public int getPteval() {
+		return pteval;
+	}
+	public void setPteval(int pteval) {
+		this.pteval = pteval;
+	}
+	public int getGubun() {
+		return gubun;
+	}
+	public void setGubun(int gubun) {
+		this.gubun = gubun;
+	}
+	public int getYymm() {
+		return yymm;
+	}
+	public void setYymm(int yymm) {
+		this.yymm = yymm;
+	}
+	public String getPid() {
+		return pid;
+	}
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+	public String getClass_num() {
+		return class_num;
+	}
+	public void setClass_num(String class_num) {
+		this.class_num = class_num;
+	}
+	public String getPemail() {
+		return pemail;
+	}
+	public void setPemail(String pemail) {
+		this.pemail = pemail;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
 	private String search;       private String keyword;
 	private String pageNum;  
 	private int start; 		     private int end;

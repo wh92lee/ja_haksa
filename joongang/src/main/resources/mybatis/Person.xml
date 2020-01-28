@@ -25,5 +25,12 @@
        select Count(*) From emp
    </select>
    
+   <select id="TKdeptName" parameterType="int"	 resultType="java.lang.String">
+        select * from person where pnum = #{pnum} 
+  </select>  
+   
+   <update id="update_s" parameterType="Person">
+	 update person set ppeval = #{ppeval}, pteval= #{pteval} where pnum = #{pnum} 
+  </update>
   
 </mapper>

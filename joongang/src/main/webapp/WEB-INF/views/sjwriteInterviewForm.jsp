@@ -8,14 +8,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="list.do">입력</a>
 <c:if test="${msg!=null}">${msg}</c:if>
-<form action="write.do" method="post" name="Interview">
+<form action="write_interview.do" method="post" name="Interview">
 <table>
 	<h3>1차 면담</h3>
 	<tr>
 	<th>pnum</th>
 	<td><input type="number" name="pnum"></td>
+	</tr>
+	<tr>
+	<th>gubun</th>
+	<td><input type="number" name="gubun"></td>
+	</tr>
+	<tr>
+	<th>yymm</th>
+	<td><input type="number" name="yymm"></td>
 	</tr>
 	<tr>
 	<th>interview_num</th>
