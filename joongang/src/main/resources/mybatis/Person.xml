@@ -30,5 +30,12 @@
      	values(1,(select to_number(to_char(sysdate, 'yymm'))yymm from dual),SEQ_STUDENT.NEXTVAL, #{pid}, #{ppw}, #{pbirth}, #{age}, #{pemail}, #{paddress}, #{pname}, #{ptel}, #{pgender}, #{class_num}, 'R',sysdate)
    </insert>
    
+   <select id="TKdeptName" parameterType="int"	 resultType="java.lang.String">
+        select * from person where pnum = #{pnum} 
+  </select>  
+   
+   <update id="update_s" parameterType="Person">
+	 update person set ppeval = #{ppeval}, pteval= #{pteval} where pnum = #{pnum} 
+  </update>
   
 </mapper>

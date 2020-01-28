@@ -9,7 +9,11 @@
 <body>
 <%
 	response.sendRedirect("login.do");
-//response.sendRedirect("nav_menu.do");
+//response.sendRedirect("nav_menu.do"); 원희
+//response.sendRedirect("sjwriteInterviewForm.do"); 승주
+//response.sendRedirect("do_tab_ajax.do"); 승주
+//response.sendRedirect("list.do"); 승주
+//response.sendRedirect("upLoadFormStart.do"); 승주
 %>
 </body>
 </html>
