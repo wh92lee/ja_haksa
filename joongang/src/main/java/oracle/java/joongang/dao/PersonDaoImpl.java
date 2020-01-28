@@ -29,4 +29,10 @@ public class PersonDaoImpl implements PersonDao {
 		return session.selectOne("gubun", person);
 	}
 
+	@Override
+	public String aliveChk(Person person) {
+		// TODO Auto-generated method stub
+		return session.selectOne("aliveChk", person);
+	}
+
 }

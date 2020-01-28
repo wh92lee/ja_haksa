@@ -9,6 +9,7 @@
 <body>
 <%
 	response.sendRedirect("login.do");
+//response.sendRedirect("nav_menu.do");
 %>
 </body>
 </html>
