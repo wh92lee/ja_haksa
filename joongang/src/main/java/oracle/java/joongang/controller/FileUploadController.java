@@ -14,7 +14,7 @@ public class FileUploadController {
 	public ModelAndView FileUpload(CommandMap commandMap, HttpServletRequest request)throws Exception{
 	 ModelAndView mv = new ModelAndView("redirect:FileUploadForm.do");
 
-	FileUploadService.FileUpload(((Object) commandMap).getMap().request);
+	FileUploadService.FileUpload(commandMap.getMap().request);
 	
 	return mv;
 
