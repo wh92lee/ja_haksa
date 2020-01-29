@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*!
  * jQuery JavaScript Library v1.11.1
  * http://jquery.com/
@@ -10307,7 +10307,7 @@ if ( typeof noGlobal === strundefined ) {
 return jQuery;
 
 }));
-=======
+
 /*!
  * jQuery JavaScript Library v1.11.1
  * http://jquery.com/
@@ -20616,4 +20616,4 @@ if ( typeof noGlobal === strundefined ) {
 return jQuery;
 
 }));
->>>>>>> refs/remotes/origin/sj_branch
+
