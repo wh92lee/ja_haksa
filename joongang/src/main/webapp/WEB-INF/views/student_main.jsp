@@ -5,9 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+	
+  
 </head>
 <body>
-학생 메인 페이지입니다.
-작업부탁드립니다.
+	
+	
+
 </body>
 </html>

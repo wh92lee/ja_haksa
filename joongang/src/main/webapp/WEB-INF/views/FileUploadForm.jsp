@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	 //response.sendRedirect("login.do"); 
-	//response.sendRedirect("student_main.do");
-	response.sendRedirect("upLoadFormStart.do");
-	
-%>
+
 </body>
 </html>

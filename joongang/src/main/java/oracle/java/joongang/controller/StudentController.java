@@ -14,4 +14,7 @@ public class StudentController {
     public String student_main(Person person, Model model) {
     	return "student_main";
     }
+	
+	
+
 }

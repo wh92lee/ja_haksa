@@ -10,6 +10,7 @@
   <mappers>
       <mapper resource="mybatis/Person.xml"/>
       <mapper resource="mybatis/Class.xml"/>
+   
   </mappers>
 
 

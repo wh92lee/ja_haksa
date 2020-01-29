@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-강사 메인 페이지입니다.
-작업부탁드립니다.
+	
 </body>
 </html>
