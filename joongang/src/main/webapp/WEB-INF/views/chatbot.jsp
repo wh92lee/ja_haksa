@@ -9,6 +9,7 @@
 
 
 <!-- <script type="text/javascript">
+
 function submitFunction() {
 	var question_Num = '${question_Num}';
 	// var room_manager = '${room_manager}';

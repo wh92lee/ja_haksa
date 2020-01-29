@@ -6,7 +6,7 @@ public class ChatBot {
 	private String user_question, pid, chatbot;
 	private int pnum, gubun, yymm, question_num;
 	private Date reg_date;
-	
+	 
 	public ChatBot() {
 		
 	}

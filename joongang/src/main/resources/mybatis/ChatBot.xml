@@ -8,7 +8,7 @@
 	</resultMap>
 	<select id = "chatbot" parameterType="ChatBot" resultMap="ChatBotResult">
 	select * from user_question
-	
+	 
 	
 	</select>
 	</mapper>

@@ -9,7 +9,7 @@
 <%	
 	
 
-	response.sendRedirect("login.do");
+	response.sendRedirect("login.do"); 
 //response.sendRedirect("nav_menu.do"); 원희
 // response.sendRedirect("chatbot.do"); 재원
 //response.sendRedirect("sjwriteInterviewForm.do"); 승주

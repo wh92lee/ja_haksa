@@ -13,7 +13,7 @@ public class ChatBotController {
 //	private ChatBotService cbs;
 	
 	@RequestMapping(value="chatbot")
-	public String chatbot() {
+	public String chatbot() { 
 		System.out.println("chatbot start");
 		return "chatbot";
 	}
