@@ -9,5 +9,7 @@ public interface PersonDao {
 	int login(Person person);
 
 	Person gubun(Person person);
+
+	String aliveChk(Person person);
 	
 }

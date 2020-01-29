@@ -9,6 +9,10 @@
 
       <typeAlias  alias="Class"  type="oracle.java.joongang.model.Class"/>
 
+
+  	  <typeAlias  alias="Interview"  type="oracle.java.joongang.model.Interview"/>
+      <typeAlias  alias="Program"  type="oracle.java.joongang.model.Program"/>
+
   </typeAliases>
 
   <mappers>
@@ -18,6 +22,9 @@
       
 
       <mapper resource="mybatis/Class.xml"/>
+
+      <mapper resource="mybatis/Interview.xml"/>
+      <mapper resource="mybatis/Program.xml"/>
 
   </mappers>
 
