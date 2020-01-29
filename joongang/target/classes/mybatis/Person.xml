@@ -26,8 +26,8 @@
    	 select * from person where pid=#{pid} and ppw=#{ppw} and alive='A'
    </select>
    <insert id="student_join" parameterType="Person"> 
-     insert into person(gubun, yymm, pnum, pid, ppw, pbirth, age, pemail, paddress, pname, ptel, pgender, class_num, alive, reg_date)
-     	values(1,(select to_number(to_char(sysdate, 'yymm'))yymm from dual),SEQ_STUDENT.NEXTVAL, #{pid}, #{ppw}, #{pbirth}, #{age}, #{pemail}, #{paddress}, #{pname}, #{ptel}, #{pgender}, #{class_num}, 'R',sysdate)
+     insert into person(gubun, yymm, pnum, pid, ppw, pbirth, age, pemail, paddress, pname, pprofile, ptel, pgender, class_num, alive, reg_date)
+     	values(1,(select to_number(to_char(sysdate, 'yymm'))yymm from dual),SEQ_STUDENT.NEXTVAL, #{pid}, #{ppw}, #{pbirth}, #{age}, #{pemail}, #{paddress}, #{pname}, #{pprofile}, #{ptel}, #{pgender}, #{class_num}, 'R',sysdate)
    </insert>
    
    <select id="TKdeptName" parameterType="int"	 resultType="java.lang.String">

@@ -63,7 +63,7 @@
 	var sel_file;
 	
 	$(document).ready(function(){
-		$("#pprofile").on("change", handleImgFileSelect);
+		$("#profile").on("change", handleImgFileSelect);
 	});
 	
 	function handleImgFileSelect(e){
@@ -140,7 +140,7 @@
 <body>
 	<div class="wrap">
 		<form action="joinPro.do" method="post" name="frm"
-			onsubmit="return chk()" id="join_form">
+			onsubmit="return chk()" id="join_form" enctype="multipart/form-data">
 			<input type="hidden" id="idChkVal" name="idChkVal" value="0">
 			<div id="j_container" role="main">
 				<h2>회원가입</h2>
@@ -193,12 +193,12 @@
 						<div class="left_title">주소</div>
 						<div class="left_content">
 							<select id="bcity_num" name="bcity_num" onchange="b_city()">
-								<option value=""> 시 선택 </option>
+								<option value=""> 시/도 선택 </option>
 								<%-- <c:forEach var="classlist" items="${classlist }">
 									<option value="${classlist.class_num}">${classlist.class_name }</option>
 								</c:forEach> --%>
 							</select> <select id="mcity_num" name="mcity_num" onchange="m_city()">
-								<option value=""> 구 선택 </option>
+								<option value=""> 시/구 선택 </option>
 								<%-- <c:forEach var="classlist" items="${classlist }">
 									<option value="${classlist.class_num}">${classlist.class_name }</option>
 								</c:forEach> --%>
@@ -215,14 +215,14 @@
 				</div>
 				<div class="right_info">
 					<div class="profile_form">
-						<div id="profile">
+						<div id="profile_img">
 							<img id="img" />
 						</div>
 					</div>
 					<div class="join_form">
 						<div class="right_title">프로필사진</div>
 						<div class="right_content">
-							<input type="file" name="pprofile" id="pprofile" />
+							<input type="file" name="profile" id="profile" required="required"/>
 						</div>
 					</div>
 					<div class="join_form">
@@ -252,7 +252,7 @@
 						<div class="left_name">과정명</div>
 						<div class="right_name">
 							<select id="class_num" name="class_num" onchange="sel_class()">
-								<option value=""> 신청하신 훈련과정을 선택해주세요.</option>
+								<option value="0"> 신청하신 훈련과정을 선택해주세요.</option>
 								<c:forEach var="classlist" items="${classlist }">
 									<option value="${classlist.class_num}">${classlist.class_name }</option>
 								</c:forEach>
