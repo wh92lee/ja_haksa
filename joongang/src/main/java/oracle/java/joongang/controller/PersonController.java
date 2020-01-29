@@ -60,39 +60,56 @@ public class PersonController {
     	int result = ps.join(person);
 		if (result > 0) return "redirect:login.do";
 		else {
-			model.addAttribute("msg","회원가입 실패 확인해 보세요");
 			return "forward:joinForm.do";
 		}
     }
+    
+   
     
     @RequestMapping(value="loginPro")
     public String loginPro(Person person, Model model) {
     	System.out.println("PersonController joinPro start .....");
     	Person gubun = null;
     	int result = ps.login(person);
+    	System.out.println("result ->"+result);
 		if (result > 0) {
-			gubun = ps.gubun(person);
-			int usergubun = gubun.getGubun();
-			switch (usergubun) {
-			case 1:
-				System.out.println("usergubun =>" + usergubun);
-				return "redirect:student_main.do";
-			case 2: 
-				System.out.println("usergubun =>" + usergubun);
-				return "redirect:gangsa_main.do";
-			case 3:
-				System.out.println("usergubun =>" + usergubun);
-				return "redirect:insa_main.do";
-			default:
-				break;
+			String alive = ps.aliveChk(person);
+			model.addAttribute("alive", alive);
+			if(alive.equals("A")) {
+				gubun = ps.gubun(person);
+				int usergubun = gubun.getGubun();
+				
+			    
+				switch (usergubun) {
+				case 1:
+						System.out.println("usergubun =>" + usergubun);
+						return "forward:student_main.do";
+				case 2: 
+					System.out.println("usergubun =>" + usergubun);
+					return "forward:gangsa_main.do";
+				case 3:
+					System.out.println("usergubun =>" + usergubun);
+					return "forward:insa_main.do";
+				default:
+					break;
+				}
+			}else if(alive.equals("R")) {
+				System.out.println("useralive =>"+ alive);
+				return "login_denial";
+			}else {
+				System.out.println("useralive =>"+ alive);
+				return "login_denial";
 			}
 		} 
 		else {
-			model.addAttribute("msg","로그인 실패 확인해 보세요");
-			return "forward:login.do";
+			return "redirect:login.do";
 		}
 		return null;
     }
     
+    @RequestMapping(value="nav_menu")
+    public String nav_menu() {
+    	return "test";
+    }
    
 }

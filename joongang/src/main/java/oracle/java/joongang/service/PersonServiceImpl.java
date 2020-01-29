@@ -37,19 +37,22 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public int login(Person person) {
-		System.out.println("1 ->"+person.getGubun());
-		System.out.println("2 ->"+person.getYymm());
-		System.out.println("3 ->"+person.getPnum());
-		System.out.println("4 ->"+person.getPid());
-		System.out.println("5 ->"+person.getPpw());
+		System.out.println("1 ->"+person.getPid());
+		System.out.println("2 ->"+person.getPpw());
 		return pd.login(person);
 	}
 
 	@Override
 	public Person gubun(Person person) {
-		System.out.println("4 ->"+person.getPid());
-		System.out.println("5 ->"+person.getPpw());
+		System.out.println("1 ->"+person.getPid());
+		System.out.println("2 ->"+person.getPpw());
 		return pd.gubun(person);
+	}
+
+	@Override
+	public String aliveChk(Person person) {
+		// TODO Auto-generated method stub
+		return pd.aliveChk(person);
 	}
 
 }

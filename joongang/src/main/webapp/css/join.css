@@ -89,9 +89,12 @@ h2{
 	position: relative;
     top: 5%;
     left: 30%;
-     display:none;
 }
 
+#img{
+	width: 120px;
+	height:150px;
+}
 .class_choice{
 	float:left;
 	width:700px;
