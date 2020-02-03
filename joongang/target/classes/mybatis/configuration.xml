@@ -2,31 +2,22 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-  <typeAliases>
-      <typeAlias  alias="Person"  type="oracle.java.joongang.model.Person"/>
+	<typeAliases>
+		<typeAlias alias="Person" type="oracle.java.joongang.model.Person" />
+		<typeAlias alias="ChatBot" type="oracle.java.joongang.model.ChatBot" />
+		<typeAlias alias="Class" type="oracle.java.joongang.model.Class" />
+		<typeAlias alias="Interview" type="oracle.java.joongang.model.Interview" />
+		<typeAlias alias="Program" type="oracle.java.joongang.model.Program" />
+	</typeAliases>
 
-      <typeAlias alias="ChatBot" type="oracle.java.joongang.model.ChatBot"/>
+	<mappers>
+		<mapper resource="mybatis/Person.xml" />
+		<mapper resource="mybatis/ChatBot.xml" />
+		<mapper resource="mybatis/Class.xml" />
+		<mapper resource="mybatis/Interview.xml" />
+		<mapper resource="mybatis/Program.xml" />
 
-      <typeAlias  alias="Class"  type="oracle.java.joongang.model.Class"/>
-
-
-  	  <typeAlias  alias="Interview"  type="oracle.java.joongang.model.Interview"/>
-      <typeAlias  alias="Program"  type="oracle.java.joongang.model.Program"/>
-
-  </typeAliases>
-
-  <mappers>
-      <mapper resource="mybatis/Person.xml"/>
-
-      <mapper resource="mybatis/ChatBot.xml"/>
-      
-
-      <mapper resource="mybatis/Class.xml"/>
-
-      <mapper resource="mybatis/Interview.xml"/>
-      <mapper resource="mybatis/Program.xml"/>
-
-  </mappers>
+	</mappers>
 
 
 </configuration>

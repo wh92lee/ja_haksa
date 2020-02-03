@@ -89,19 +89,35 @@ function chatListFunction(type){
 } 
 </script> -->
 <script type="text/javascript">
-	know = {
+/* 	know = {
 			"기업추천":"검색중입니다 잠시만 기다려주세요",
 			"" : "질문해주세요 ^^"
-	};
+	}; */
 	function talk() {
+		str2 = "기업추천";  
+		// 사용자가 입력한 내용
         var user = document.getElementById("userBox").value;
-        document.getElementById("userBox").value = "";
+//        alert("str2->"+str2);
+   //     alert("user->"+user);
+		idx=user.indexOf(str2);
+      //  alert("idx->"+idx);
+		if ( idx>=0 ) {
+//			 alert("일치합니다");
+			 document.getElementById("chatLog").innerHTML += "잠시만 기다려주세요<br>";
+			 location.href="questionInsert.do?"
+		} else {
+			document.getElementById("chatLog").innerHTML += "잘모르겠어요<br>";
+		}
+	
+        
+        /* document.getElementById("userBox").value = "";
         document.getElementById("chatLog").innerHTML += user+"<br>";
         if (user in know) {
             document.getElementById("chatLog").innerHTML += know[user]+"<br>";
+            
         } else {
             document.getElementById("chatLog").innerHTML += "I don't understand...<br>";
-        }
+        } */
     } 
 </script>
 </head>
@@ -127,13 +143,14 @@ function chatListFunction(type){
 						<div class="portlet-footer">
 							<div class="row" style="height: 90px;">
 								<div class="form-group col-xs-10">
-										
-										        
-									<textarea style="height: 80px;" id="userBox" class="form-control" placeholder="메세지를 입력하세요." maxlength="100" ></textarea> 
+																		        
+									<!-- <textarea style="height: 80px;" id="userBox" class="form-control" placeholder="메세지를 입력하세요." maxlength="100"  name=""></textarea> -->
+									<input type="text" style="height: 80px;" id="userBox" class="form-control" maxlength="100" name="keyword"> 
 								</div>
 							</div>
 							<div class="form-group col-xe-2">
-								<button type="button" class="btn btn-default pull-right" onclick="talk();" >전송</button>
+								<button type="button" class="btn btn-default pull-right" onclick="talk();"  >전송</button>
+								<!-- <a href="http://127.0.0.1:8000/polls/reg" target="_blank">Linear Regression</a> -->
 								<div class="clearfix"></div>
 							</div>
 						</div>
