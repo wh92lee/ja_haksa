@@ -70,7 +70,7 @@ public class PersonController {
     
     @RequestMapping(value="loginPro")
     public String loginPro(Person person, Model model) {
-    	System.out.println("PersonController joinPro start .....");
+    	System.out.println("PersonController loginPro start .....");
     	Person gubun = null;
     	int result = ps.login(person);
     	System.out.println("result ->"+result);
@@ -88,7 +88,7 @@ public class PersonController {
 						return "forward:student_main.do";
 				case 2: 
 					System.out.println("usergubun =>" + usergubun);
-					return "forward:gangsa_main.do";
+					return "forward:sjlist.do";
 				case 3:
 					System.out.println("usergubun =>" + usergubun);
 					return "forward:insa_main.do";

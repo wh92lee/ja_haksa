@@ -7,7 +7,7 @@ public class Interview {
 	private int yymm;
 	private int interview_num;
 	private int teacher_num;
-	private int interview_content;
+	private String interview_content;
 	private int interview_count;
 	private String reg_date;
 	private String pemail;
@@ -119,10 +119,10 @@ public class Interview {
 	public void setTeacher_num(int teacher_num) {
 		this.teacher_num = teacher_num;
 	}
-	public int getInterview_content() {
+	public String getInterview_content() {
 		return interview_content;
 	}
-	public void setInterview_content(int interview_content) {
+	public void setInterview_content(String interview_content) {
 		this.interview_content = interview_content;
 	}
 	public int getInterview_count() {

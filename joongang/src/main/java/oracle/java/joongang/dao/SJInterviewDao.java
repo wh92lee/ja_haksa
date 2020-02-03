@@ -12,15 +12,25 @@ public interface SJInterviewDao {
 	
 	int update_s(Person person);
 
-	List<Interview> list(Interview interview);
+	List<Person> list(Person person);
 
 	int total();
 
 	int insert(Program program);
 
-	String PNum(int pnum);
+	Person PNum(int pnum);
 
-	List<Interview> list_i1(Interview interview);
+	List<Person> list_i(Person person);
+
+	Interview Content1(int pnum);
+	Interview Content2(int pnum);
+	Interview Content3(int pnum);
+
+	Person i_ch(int pnum);
+
+	Person eval(int pnum);
+	
+	List<Person> photo(Person person);
 
 	
 

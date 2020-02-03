@@ -8,12 +8,11 @@
 </head>
 <body>
 <%
-	response.sendRedirect("login.do");
+response.sendRedirect("login.do");
 //response.sendRedirect("nav_menu.do"); 원희
-//response.sendRedirect("sjwriteInterviewForm.do"); 승주
-//response.sendRedirect("do_tab_ajax.do"); 승주
-//response.sendRedirect("list.do"); 승주
+//response.sendRedirect("sjwriteInterviewForm.do");
+//response.sendRedirect("sjlist.do"); 
+
 //response.sendRedirect("upLoadFormStart.do"); 승주
+//response.sendRedirect("gangsa_main.do"); 
 %>
-</body>
-</html>
