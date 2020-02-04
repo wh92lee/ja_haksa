@@ -36,7 +36,7 @@
 				아이디 : <input type="text" name="pid" id="pid"  onsubmit="return idchk()"> &nbsp;&nbsp;
 				비밀번호 : <input type="password" name="ppw" id="ppw" onsubmit="return passwdchk()" > &nbsp;
 					<input type="submit" value="로그인"> &nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="button" value="회원가입"   onclick="location.href='joinForm.do'">&nbsp;
+					<input type="button" value="회원가입"   onclick="location.href='warning.do'">&nbsp;
                     <input type="button" value="아이디찾기"   onclick="location.href='#'">&nbsp;
                     <input type="button" value="비밀번호찾기" onclick="location.href='#'">&nbsp;
 				</form>
