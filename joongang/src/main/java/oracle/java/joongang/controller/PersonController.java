@@ -24,9 +24,11 @@ import oracle.java.joongang.model.City;
 import oracle.java.joongang.model.Class;
 import oracle.java.joongang.model.Person;
 import oracle.java.joongang.service.ClassService;
-import oracle.java.joongang.service.PersonService;
+import oracle.java.joongang.service.PersonService; 
 
 
+ 
+ 
 @Controller
 public class PersonController {
 	private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
@@ -105,7 +107,6 @@ public class PersonController {
 			return "forward:joinForm.do"; 
 		}
 	}
-
 	private String uploadFile(String originalName, byte[] fileData, String uploadPath) throws Exception {
 		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyyMMddHHmmss");		
 		Date time = new Date();
@@ -150,7 +151,7 @@ public class PersonController {
 					return "forward:student_main.do";
 				case 2:
 					System.out.println("usergubun =>" + usergubun);
-					return "forward:gangsa_main.do";
+					return "forward:sjlist.do";
 				case 3:
 					System.out.println("usergubun =>" + usergubun);
 					return "forward:insa_main.do";

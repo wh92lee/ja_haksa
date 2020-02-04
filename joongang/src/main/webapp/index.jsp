@@ -5,18 +5,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
 
 <%
 
-response.sendRedirect("login.do"); 
+
+
+
+
+response.sendRedirect("login.do");
 
 //response.sendRedirect("nav_menu.do"); 원희
+//response.sendRedirect("sjlist.do"); 
 // response.sendRedirect("chatbot.do"); 재원
+
 //response.sendRedirect("sjwriteInterviewForm.do"); 승주
-//response.sendRedirect("do_tab_ajax.do"); 승주
-//response.sendRedirect("sjlist.do"); //승주
 //response.sendRedirect("upLoadFormStart.do"); 승주
+//response.sendRedirect("gangsa_main.do"); 
 
 %>
 </body>

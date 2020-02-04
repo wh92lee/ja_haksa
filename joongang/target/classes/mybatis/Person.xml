@@ -15,6 +15,35 @@
     <result property="comm"      column="comm"/>
     <result property="deptno"    column="deptno"/>
   </resultMap>
+  
+  <resultMap id="PersonResult1" type="Person">
+    <result property="pnum" column="pnum"/>
+    <result property="gubun" column="gubun"/>
+    <result property="yymm" column="yymm"/>
+    <result property="pid" column="pid"/>
+    <result property="ppw" column="ppw"/>
+    <result property="pname" column="pname"/>
+    <result property="pprofile" column="pprofile"/>
+    <result property="ptel" column="ptel"/>
+    <result property="pbirth" column="pbirth"/>
+    <result property="Age" column="Age"/>
+    <result property="pgender" column="pgender"/>
+    <result property="bcity" column="bcity"/>
+    <result property="mcity" column="mcity"/>
+    <result property="paddress" column="paddress"/>
+    <result property="pemail" column="pemail"/>
+    <result property="room_num" column="room_num"/>
+    <result property="class_num" column="class_num"/>
+    <result property="alive" column="alive"/>
+    <result property="salary" column="salary"/>
+    <result property="major" column="major"/>
+    <result property="exp" column="exp"/>
+    <result property="diploma" column="diploma"/>
+    <result property="ppeval" column="ppeval"/>
+    <result property="pteval" column="pteval"/>
+    <result property="reg_date" column="reg_date"/>
+  </resultMap> 
+  
    <select id="login" parameterType="Person" resultType="int">
       select Count(*) from person where pid=#{pid} and ppw=#{ppw}	
    </select>
@@ -25,28 +54,54 @@
    <select id="gubun" parameterType="Person" resultType="Person">
    	 select * from person where pid=#{pid} and ppw=#{ppw} and alive='A'
    </select>
+   
    <insert id="student_join" parameterType="Person"> 
      insert into person(gubun, yymm, pnum, pid, ppw, pbirth, age, pemail, bcity, mcity, paddress, pname, pprofile, ptel, pgender, class_num, alive, reg_date)
      	values(1,(select to_number(to_char(sysdate, 'yymm'))yymm from dual),SEQ_STUDENT.NEXTVAL, #{pid}, #{ppw}, #{pbirth}, #{age}, #{pemail}, #{bcity}, #{mcity}, #{paddress}, #{pname}, #{pprofile}, #{ptel}, #{pgender}, #{class_num}, 'R',sysdate)
    </insert>
    
-   <select id="TKdeptName" parameterType="int"	 resultType="java.lang.String">
-        select * from person where pnum = #{pnum} 
-  </select>  
+   <select id="list" parameterType="Person" resultMap="PersonResult1">
+  	select * from person where gubun=1
+   </select>
+ 
+  <select id="list_i" parameterType="Person" resultMap="PersonResult1">
+  	select pnum,gubun,yymm from person where gubun=1 group by pnum,gubun,yymm
+  </select>
    
-   <update id="update_s" parameterType="Person">
+   <select id="Person" parameterType="Person"	 resultType="Person">
+        select * from person where pnum = #{pnum}
+   </select>  
+   
+  <update id="update_s" parameterType="Person">
 	 update person set ppeval = #{ppeval}, pteval= #{pteval} where pnum = #{pnum} 
   </update>
+
+  
+  <select id="i_ch" parameterType="Person" resultMap="PersonResult1">
+  	select * from person where pnum = #{pnum} and gubun=#{gubun} and yymm = #{yymm}
+  </select>
+  
+  <select id="eval" parameterType="Person" resultMap="PersonResult1">
+  	select * from person where pnum = #{pnum}
+  </select>
+  
+  <select id="photo" parameterType="Person" resultMap="PersonResult1">
+  	select * from person where gubun=2
+  </select>
+  
+
   <select id="b_city" resultType="City">
   	select b_city, city_name from city where m_city=10
   </select>
   <select id="m_city" parameterType="int" resultType="City">
   	select m_city, city_name from city where b_city=#{b_city} and m_city != 10
   </select>
+
   <select id="idcheck" parameterType="String" resultType="int">
   	select Count(*) from person where pid=#{pid} and alive != 'D'
   </select>
   <update id="addstudent" parameterType="Person">
   	update class set now_person = now_person+1 where class_num=#{class_num}
   </update>
+
 </mapper>
