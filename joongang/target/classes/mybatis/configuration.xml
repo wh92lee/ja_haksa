@@ -6,7 +6,7 @@
       <typeAlias  alias="Person"  type="oracle.java.joongang.model.Person"/>
       <typeAlias  alias="Class"  type="oracle.java.joongang.model.Class"/>
   	  <typeAlias  alias="Interview"  type="oracle.java.joongang.model.Interview"/>
-       <typeAlias  alias="Program"  type="oracle.java.joongang.model.Program"/>
+      <typeAlias  alias="Program"  type="oracle.java.joongang.model.Program"/>
   </typeAliases>
 
   <mappers>
