@@ -50,4 +50,16 @@ public class PersonDaoImpl implements PersonDao {
 		return session.selectList("m_city", b_city);
 	}
 
+	@Override
+	public int idcheck(String pid) {
+		// TODO Auto-generated method stub
+		return session.selectOne("idcheck", pid);
+	}
+
+	@Override
+	public int addstudent(Person person) {
+		// TODO Auto-generated method stub
+		return session.update("addstudent", person);
+	}
+
 }
