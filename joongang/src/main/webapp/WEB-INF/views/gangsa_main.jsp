@@ -18,19 +18,20 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
-
+<style type="text/css">
+#photo {
+	width:100px;
+	height:100px;
+}
+</style>
 </head>
 <body>
 강사 메인 페이지입니다.
 작업부탁드립니다.
-	<c:forEach var="photo" items="${photo }">
-	<div>사진 공간${photo.pprofile }
-	<%-- <img src="${pageContext.request.contextPath}/${rank1.img_folder }/${rank1.real_name }">
-	 --%>										
-	</div>
-	</c:forEach>
-	<div>오늘의 출결 공간(삭제)?</div>
-	<div>강의자료 공간</div>	
+	<div><img id="photo" src="images/kwangA1.jpg">사진</div>
+	
+	<div>오늘의 출결 공간(프로시저구현)</div>
+	<div>강의자료 공간<a href="file_upload.do">강의 올리기 클릭</a> </div>	
 	<div>질의응답 공간</div>		
 </body>
 </html>

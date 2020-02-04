@@ -1,6 +1,9 @@
 package oracle.java.joongang.controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -142,7 +145,35 @@ public class SJ_TeacherController {
 			
 			return iv4;
 		}		
+		
+		private String uploadFile(String originalName, byte[] fileData, String uploadPath) throws Exception {
+			SimpleDateFormat format1 = new SimpleDateFormat ( "yyyyMMddHHmmss");		
+			Date time = new Date();
+			String time1 = format1.format(time);
+			System.out.println(time1);
 			
+			/*UUID uid = UUID.randomUUID();
+			*/// requestPath = requestPath + "/resources/image";
+			System.out.println("uploadPath->" + uploadPath);
+			// Directory 생성
+			File fileDirectory = new File(uploadPath);
+			if (!fileDirectory.exists()) {
+				fileDirectory.mkdirs();
+				System.out.println("업로드용 폴더 생성 : " + uploadPath);
+			}
+
+			String savedName = time1.toString() + "_" + originalName;
+			// String path1 =
+			// "C:\\spring\\springSrc39\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\sMybatis\\resources\\image";
+			File target = new File(uploadPath, savedName);
+			// File target = new File(requestPath, savedName);
+			FileCopyUtils.copy(fileData, target);
+			return savedName;
+		}
+		
+		
+		
+		
 		@RequestMapping(value = "upLoadFormStart")
 		public String upLoadFormStart(Model model) {
 			System.out.println("upLoadFormStart Start");
@@ -232,7 +263,7 @@ public class SJ_TeacherController {
 			return "uploadResult";
 		  }
 		 
-		private String uploadFile(String originalName, byte[] fileData, String uploadPath) throws Exception {
+		private String uploadFile1(String originalName, byte[] fileData, String uploadPath) throws Exception {
 			UUID uid = UUID.randomUUID();
 			// requestPath = requestPath + "/resources/image";
 			System.out.println("uploadPath->" + uploadPath);

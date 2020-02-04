@@ -89,10 +89,10 @@ public class SJServiceImpl implements SJService {
 	}
 
 	@Override
-	public List<Person> photo(Person person) {
-//		System.out.println("SJServiceImpl photo start");
-		return sd.photo(person);
+	public int c_f(Program program) {
+		// TODO Auto-generated method stub
+		return sd.c_f(program);
 	}
-
+	
 
 }

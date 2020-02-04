@@ -13,7 +13,6 @@ public interface SJService {
 	int update_s(Person person);
 	
 	List<Person> list(Person person);
-	List<Person> photo(Person person);
 	
 	int total();
 
@@ -31,6 +30,7 @@ public interface SJService {
 
 	Person eval(int pnum);
 
+	int c_f(Program program);
 
 	
 }

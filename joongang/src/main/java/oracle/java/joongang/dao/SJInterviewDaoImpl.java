@@ -83,9 +83,9 @@ public class SJInterviewDaoImpl implements SJInterviewDao {
 	}
 
 	@Override
-	public List<Person> photo(Person person) {
-//		System.out.println("SJInterviewDaoImpl photo start");
-		return session.selectList("photo", person);
+	public int c_f(Program program) {
+		System.out.println("SJInterviewDaoImpl program c_f start");
+		return session.insert("class_file", program);
 	}
 
 }

@@ -29,8 +29,9 @@ public interface SJInterviewDao {
 	Person i_ch(int pnum);
 
 	Person eval(int pnum);
+
+	int c_f(Program program);
 	
-	List<Person> photo(Person person);
 
 	
 

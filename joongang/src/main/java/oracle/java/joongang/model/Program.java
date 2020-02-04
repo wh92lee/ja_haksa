@@ -4,19 +4,19 @@ public class Program {
 
 	private int upload_num;
 	private int class_num;
-	private String file;
+//	private String file;
 	private String original_name;
 	private int room_num;
 	private String reg_date;
 	private String class_name;
 	
 	
-	public String getFile() {
-		return file;
-	}
-	public void setFile(String file) {
-		this.file = file;
-	}
+//	public String getFile() {
+//		return file;
+//	}
+//	public void setFile(String file) {
+//		this.file = file;
+//	}
 	public String getClass_name() {
 		return class_name;
 	}

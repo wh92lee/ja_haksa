@@ -3,7 +3,15 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Program">
-
+	<resultMap id="ProgramResult" type="Program">
+	    <result property="upload_num" column="pnum"/>
+	    <result property="savefile_name" column="gubun"/>
+	    <result property="original_name" column="yymm"/>
+	    <result property="reg_date" column="pname"/>
+	    <result property="room_num" column="room_num"/>
+	    <result property="class_name" column="class_num"/>
+	    <result property="class_num" column="class_num"/>
+	</resultMap> 
   <insert id="insert2" parameterType="Program">
 	 insert into program values (#{upload_num},#{class_num},#{savefile_name},#{original_name},
 	 #{reg_date},#{class_name},#{room_num} ) 
@@ -13,5 +21,9 @@
 	 insert into program values (#{upload_num},#{class_num},#{savefile_name},#{original_name},
 	 #{reg_date},#{class_name},#{room_num} ) 
  	</insert>
-  
+ 	
+    <insert id="class_file" parameterType="Program"> 
+     insert into program(upload_num, class_num, class_name, room_num) values ( #{upload_num}, #{class_num}, #{class_name}, #{room_num} )
+  	</insert>
+
 </mapper>
