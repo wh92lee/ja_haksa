@@ -136,6 +136,29 @@
 	    	});
 	    };
     </script>
+    <script type="text/javascript">
+    function b_city(){
+    	$('#mcity_num option').remove(0);
+    	str = "";
+    	var bcity = document.getElementById('bcity_num').value;
+    	$.ajax({
+    		url:"getMcity.do",
+    		data:{b_city : bcity},
+    		dataType:'json',
+    		success:function(data){
+    			//var list = JSON.parse(data);
+    			/* var jsondata = JSON.stringify(data);
+    			alert(jsondata); */
+    				str  += "<option>시/구 선택</option> ";
+    				$(data).each(
+    					function() {
+    				str  += "<option value='" + this.m_city + "'> " + this.city_name  + "</option> "; 			
+    			});
+    			$('#mcity_num').append(str);
+    		}
+    	});
+    };
+    </script>
 </head>
 <body>
 	<div class="wrap">
@@ -179,8 +202,8 @@
 					<div class="join_form">
 						<div class="left_title">나이</div>
 						<div class="left_content">
-							<input type="number" name="age" id="age" required="required"
-								style="width: 40px;"> 세
+							<input type="text" name="age" id="age" required="required"
+								style="width: 40px;" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"> 세
 						</div>
 					</div>
 					<div class="join_form">
@@ -194,14 +217,12 @@
 						<div class="left_content">
 							<select id="bcity_num" name="bcity_num" onchange="b_city()">
 								<option value=""> 시/도 선택 </option>
-								<%-- <c:forEach var="classlist" items="${classlist }">
-									<option value="${classlist.class_num}">${classlist.class_name }</option>
-								</c:forEach> --%>
-							</select> <select id="mcity_num" name="mcity_num" onchange="m_city()">
+								<c:forEach var="bcity" items="${b_city }">
+									<option value="${bcity.b_city}">${bcity.city_name }</option>
+								</c:forEach>
+							</select> 
+							<select id="mcity_num" name="mcity_num">
 								<option value=""> 시/구 선택 </option>
-								<%-- <c:forEach var="classlist" items="${classlist }">
-									<option value="${classlist.class_num}">${classlist.class_name }</option>
-								</c:forEach> --%>
 							</select>
 						</div>
 					</div>

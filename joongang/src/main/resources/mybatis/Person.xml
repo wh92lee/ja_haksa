@@ -37,5 +37,10 @@
    <update id="update_s" parameterType="Person">
 	 update person set ppeval = #{ppeval}, pteval= #{pteval} where pnum = #{pnum} 
   </update>
-  
+  <select id="b_city" resultType="City">
+  	select b_city, city_name from city where m_city=10
+  </select>
+  <select id="m_city" parameterType="int" resultType="City">
+  	select m_city, city_name from city where b_city=#{b_city} and m_city != 10
+  </select>
 </mapper>

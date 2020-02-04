@@ -1,9 +1,12 @@
 package oracle.java.joongang.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import oracle.java.joongang.dao.PersonDao;
+import oracle.java.joongang.model.City;
 import oracle.java.joongang.model.Person;
 
 @Service
@@ -53,6 +56,18 @@ public class PersonServiceImpl implements PersonService {
 	public String aliveChk(Person person) {
 		// TODO Auto-generated method stub
 		return pd.aliveChk(person);
+	}
+
+	@Override
+	public List<City> b_city() {
+		// TODO Auto-generated method stub
+		return pd.b_city();
+	}
+
+	@Override
+	public List<City> getmcity(int b_city) {
+		// TODO Auto-generated method stub
+		return pd.getmcity(b_city);
 	}
 
 }
