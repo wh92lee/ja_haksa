@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+	<resultMap id="BoardResult" type="Board">
+    <result property="b_no"     column="b_no"/>
+    <result property="b_name"     column="b_name"/>
+    <result property="b_title"       column="b_title"/>
+    <result property="b_content"       column="b_content"/>
+    <result property="b_date"  column="b_date"/>
+    <result property="b_hit"       column="b_hit"/>
+    <result property="b_group"      column="b_group"/>
+    <result property="b_step"    column="b_step"/>
+    <result property="b_indent"    column="b_indent"/>
+  </resultMap>
+  
+ 
+  
+   <select id="listAll" parameterType="Board" resultMap="BoardResult">
+      select * from (select rownum rn, a.* from (select * from jboard
+    	 order by b_no) a) where rn between #{start} and
+    	 #{end} order by b_group desc, b_step asc 	
+   </select>
+   
+   <select id="total" resultType="int"> 
+       select Count(*) From jboard
+   </select>
+   
+    <select id="detail" parameterType="int" resultType="Board">
+   SELECT * FROM jboard WHERE b_no = #{b_no}
+   </select>
+   
+    <insert id="insert" parameterType="Board">
+   insert into jboard (b_no, B_TITLE, B_NAME, B_CONTENT, B_GROUP ,B_STEP, B_INDENT)
+	values (JBOARD_SEQ.nextval,#{b_title}, #{b_name}, #{b_content}, JBOARD_SEQ.currval,  0, 0 )
+   </insert>
+   
+   <update id="upHit" parameterType="int">
+   	
+   	update jboard set b_hit = b_hit + 1 where b_no = #{b_no}
+   
+   </update>
+   
+   <update id="modify" parameterType="Board">
+   	  UPDATE jboard SET b_name=#{b_name}, b_title=#{b_title}, b_content=#{b_content}
+   WHERE b_no=#{b_no}
+   
+   </update>
+   
+   <delete id="delete" parameterType="int">
+   DELETE FROM jboard WHERE b_no=#{b_no}
+   </delete>
+   
+   <update id="replyShape" parameterType="Board">
+   update jboard set b_step = b_step + 1 where b_group = #{b_group} and b_step > #{b_step}
+   
+   </update>
+   
+    <insert id="reply" parameterType="Board">
+   insert into jboard (b_no, b_name, b_title, b_content, b_group, b_step, b_indent)
+	values (JBOARD_SEQ.nextval, #{b_name}, #{b_title}, #{b_content}, #{b_group}, #{b_step}+1, #{b_indent}+1)
+   
+   </insert>
+   
+  
+  
+</mapper>

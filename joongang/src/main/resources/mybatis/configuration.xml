@@ -5,11 +5,15 @@
   <typeAliases>
       <typeAlias  alias="Person"  type="oracle.java.joongang.model.Person"/>
       <typeAlias  alias="Class"  type="oracle.java.joongang.model.Class"/>
+      <typeAlias  alias="Board"  type="oracle.java.joongang.model.Board"/>
+      <typeAlias  alias="Cont"  type="oracle.java.joongang.model.Cont"/>
   </typeAliases>
 
   <mappers>
       <mapper resource="mybatis/Person.xml"/>
       <mapper resource="mybatis/Class.xml"/>
+      <mapper resource="mybatis/Board.xml"/>
+      <mapper resource="mybatis/Cont.xml"/>
   </mappers>
 
 

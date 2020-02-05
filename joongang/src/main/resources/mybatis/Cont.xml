@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Cont">
+ <resultMap id="ContResult" type="Cont">
+    <result property="b_no"     column="b_no"/>
+    <result property="c_b_no"     column="c_b_no"/>
+    <result property="c_no"       column="c_no"/>
+    <result property="c_name"       column="c_name"/>
+    <result property="c_content"  column="c_content"/>
+   
+  </resultMap>
+  
+   <insert id="replycon" parameterType="Cont">
+  	insert into jboard_cont (C_NO, C_NAME, C_CONTENT, C_B_NO)
+	values (CONT_SEQ.nextval, #{c_name},#{c_content}, #{b_no})
+  
+   </insert>
+   
+   <select id="clistAll" parameterType="int" resultMap="ContResult">
+     select c_name,c_content,c_no from jboard_cont where C_B_NO= #{b_no} order by c_no asc
+     
+   </select>
+   
+      <select id="comodify" parameterType="int" resultType="java.lang.String">
+     select c_content from jboard_cont where C_NO= #{c_no}
+   </select>
+   
+   <update id="replyconupdt" parameterType="Cont">
+     UPDATE jboard_cont SET C_CONTENT= #{c_content} where C_NO = #{c_no}  
+   </update>
+   
+     <delete id="comdelet" parameterType="int">
+   DELETE FROM jboard_cont  where C_NO = #{c_no}
+   </delete>
+   
+
+</mapper>
