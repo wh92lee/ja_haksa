@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ChatBot">
+<resultMap type="ChatBot" id="ChatBotResult">
+	<result property="User_Question" column="User_Question"/>
+	</resultMap>
+	<select id = "chatbot" parameterType="ChatBot" resultMap="ChatBotResult">
+	select * from user_question
+	 
+	
+	</select>
+	</mapper>

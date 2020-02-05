@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"   %>
 
@@ -34,5 +35,6 @@
 			<td colspan="5"> <a href="writeForm.do">글작성</a> </td>
 		</tr>
 	</table>
+
 </body>
 </html>

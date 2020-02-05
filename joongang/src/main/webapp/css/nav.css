@@ -1,0 +1,34 @@
+@charset "UTF-8";
+.nav-container{
+	display: flex;
+	flex-direction: row;
+	width: 1400px;
+	margin:0;
+	padding: 0;
+	background-color:darkslategrey;
+	list-style-type:none;
+}
+
+.nav-item{
+	padding:15px;
+	cursor:pointer;
+}
+
+.nav-item2{
+	padding:15px;
+	cursor:pointer;
+	list-style-type:none;
+	background-color: lightseagreen;
+	color:white;
+}
+
+.nav-item a{
+	text-align:center;
+	text-decoration: none;
+	color:white;
+}
+
+
+.nav-item:hover{
+	background-color: grey;
+}
