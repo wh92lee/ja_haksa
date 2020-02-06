@@ -4,20 +4,30 @@
 
 <mapper namespace="ChatBot">
 	<resultMap type="ChatBot" id="ChatBotResult">
-		<result property="pnum" column="pnum"/>
-		<result property="gubun" column="gubun"/>
-		<result property="yymm" column="yymm"/>
-		<result property="pid" column="pid"/>
-		<result property="uesr_question" column="uesr_question" />		
+		<result property="pnum" column="pnum" />
+		<result property="gubun" column="gubun" />
+		<result property="yymm" column="yymm" />
+		<result property="pid" column="pid" />
+		<result property="uesr_question" column="uesr_question" />
 	</resultMap>
-	
-	
+
+	<select id="listAll" parameterType="ChatBot" resultMap="ChatBotResult">
+		select * from (select rownum rn, a.* from (select * from chatbot order by pnum) a) where rn between #{start} and #{end}
+	</select>
+
 	<select id="chatbot" parameterType="ChatBot" resultMap="ChatBotResult">
 		select * from user_question
 	</select>
-	<insert id = "insert" parameterType="ChatBot">
-		insert into chatbot values(#{pnum},#{gubun},#{yymm},#{pid},#{uesr_question});
+	
+	<select id="total" resultType="int">
+		select count(*) from chatbot
+	</select>
+	
+	<insert id="insert" parameterType="ChatBot">
+		insert into chatbot
+			values(#{pnum},#{gubun},#{yymm},#{pid},#{uesr_question});
 	</insert>
 	
 	
+
 </mapper>

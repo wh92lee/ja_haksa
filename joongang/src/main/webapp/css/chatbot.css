@@ -3,6 +3,7 @@
   display:block;
   width: 55px;
   height: 16px;
+  background-image:url('https://s.pstatic.net/static/www/img/2017/sp_nav_v170523.png');
     background-position: 0 -78px;
 }
 
@@ -31,7 +32,7 @@
 }
 
  .board {
-  /* font-family:'µ¸¿ò'; */
+  /* font-family:'ï¿½ï¿½ï¿½ï¿½'; */
   font-size:13px;
   position:absolute;
   visibility:hidden;

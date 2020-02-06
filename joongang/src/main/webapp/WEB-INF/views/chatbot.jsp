@@ -100,15 +100,15 @@ function chatListFunction(type){
 //        alert("str2->"+str2);
    //     alert("user->"+user);
 		idx=user.indexOf(str2);
+		document.getElementById("chatLog").innerHTML += user+"<br>";
       //  alert("idx->"+idx);
 		if ( idx>=0 ) {
 //			 alert("일치합니다");
 			 document.getElementById("chatLog").innerHTML += "잠시만 기다려주세요<br>";
-			 location.href="questionInsert.do?"
+			 location.href="iq.do?userQuestion="+user
 		} else {
 			document.getElementById("chatLog").innerHTML += "잘모르겠어요<br>";
-		}
-	
+		}	
         
         /* document.getElementById("userBox").value = "";
         document.getElementById("chatLog").innerHTML += user+"<br>";
@@ -145,7 +145,7 @@ function chatListFunction(type){
 								<div class="form-group col-xs-10">
 																		        
 									<!-- <textarea style="height: 80px;" id="userBox" class="form-control" placeholder="메세지를 입력하세요." maxlength="100"  name=""></textarea> -->
-									<input type="text" style="height: 80px;" id="userBox" class="form-control" maxlength="100" name="keyword"> 
+									<input type="text" style="height: 80px;" id="userBox" class="form-control" maxlength="100" name="userQuestion" > 
 								</div>
 							</div>
 							<div class="form-group col-xe-2">
