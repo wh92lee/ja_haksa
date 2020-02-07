@@ -9,4 +9,6 @@ public interface PersonService {
 	int login(Person person);
 
 	Person gubun(Person person);
+
+	String aliveChk(Person person);
 }

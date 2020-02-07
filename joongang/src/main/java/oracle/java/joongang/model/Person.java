@@ -2,6 +2,7 @@ package oracle.java.joongang.model;
 
 import java.util.Date;
 
+
 public class Person {
 	private int gubun;
 	private int yymm;
@@ -28,6 +29,7 @@ public class Person {
 	private int ppeval;
 	private int pteval;
 	private Date reg_date;
+	
 	public int getGubun() {
 		return gubun;
 	}
