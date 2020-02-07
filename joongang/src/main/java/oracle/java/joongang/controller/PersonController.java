@@ -20,10 +20,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import oracle.java.joongang.model.City;
 import oracle.java.joongang.model.Class;
 import oracle.java.joongang.model.Person;
 import oracle.java.joongang.service.ClassService;
 import oracle.java.joongang.service.PersonService;
+
 
 @Controller
 public class PersonController {
@@ -52,17 +54,31 @@ public class PersonController {
 	public String joinForm(Model model) {
 		System.out.println("............ JoinForm Start ...........");
 		List<Class> class_list = cs.class_list();
+		List<City> b_city = ps.b_city();
+		System.out.println("b_city ->"+ b_city);
 		System.out.println("class_list ->" + class_list);
 		model.addAttribute("classlist", class_list);
+		model.addAttribute("b_city", b_city);
 		return "joinForm";
 	}
 
 	@RequestMapping(value = "idCheck")
-	public int idCheck(String id) {
-
-		return 0;
+	@ResponseBody
+	public int idCheck(String pid) {
+		System.out.println(".......... idCheck Start .............");
+		int idcheck = ps.idcheck(pid);
+		System.out.println("idcheck =>" + idcheck);
+		return idcheck;
 	}
-
+	@RequestMapping(value="getMcity")
+	@ResponseBody
+	public List<City> getMcity(int b_city, Model model){
+		System.out.println("........... getMcity Start ..............");
+		List<City> m_city = ps.getmcity(b_city);
+		System.out.println("m_city List => " + m_city);
+		//model.addAttribute("m_city", m_city);
+		return m_city;
+	}
 	// @RequestMapping(value="getClassInfo",
 	// produces="application/text;charset=UTF-8")
 	// 단어 하나값만 가져오는게 아닐때에는 produces 사용시 값을 가져오지 않는다.
@@ -81,9 +97,11 @@ public class PersonController {
 		String savedName = uploadFile(profile.getOriginalFilename(), profile.getBytes(), uploadPath);
 		logger.info("savedName: " + savedName);
 		person.setPprofile(savedName);
-		int result = ps.join(person); 
-		if (result > 0) return "redirect:login.do";
-		else { 
+		int result = ps.join(person); // 가입
+		if (result > 0) {
+			int addStudent = ps.addstudent(person); // 가입시 강의 현재인원에 +1 기능
+			return "redirect:login.do";
+		}else { 
 			return "forward:joinForm.do"; 
 		}
 	}
