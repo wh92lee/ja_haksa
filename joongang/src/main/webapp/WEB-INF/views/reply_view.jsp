@@ -20,7 +20,7 @@
 			<tr><td> 내용 </td><td> <textarea rows="10"  name="b_content">${board.b_content}</textarea></td></tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="답변저장"> 
-				<a href="list" >목록</a></td>
+				<a href="hhlist" >목록</a></td>
 			</tr>
 	   </table>
 	</form>

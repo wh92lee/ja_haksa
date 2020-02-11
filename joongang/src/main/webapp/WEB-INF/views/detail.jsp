@@ -70,7 +70,7 @@
 		  <tr> <td> 제목 </td><td> <input type="text" name="b_title" value="${board.b_title}"></td></tr>
 		  <tr> <td> 내용 </td><td> <textarea rows="10" name="b_content" >${board.b_content}</textarea></td></tr>
 		  <tr> <td colspan="2"> <input type="submit" value="수정"> &nbsp;&nbsp; 
-				                  <a href="list.do">목록보기</a> &nbsp;&nbsp; 
+				                  <a href="hhlist.do">목록보기</a> &nbsp;&nbsp; 
 				                  <a href="delete.do?b_no=${board.b_no}">삭제</a> &nbsp;&nbsp; 
 				                  <a href="reply_view.do?b_no=${board.b_no}">답변</a></td>
 			</tr>

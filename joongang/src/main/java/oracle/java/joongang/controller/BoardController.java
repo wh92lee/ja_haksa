@@ -24,7 +24,7 @@ public class BoardController {
 	@Autowired
 	private BoardService bs;
 	
-	@RequestMapping(value="list")
+	@RequestMapping(value="hhlist")
     public String list(Board board, Model model, String currentPage) {
 		int total = bs.total();
 		
@@ -42,7 +42,7 @@ public class BoardController {
 		model.addAttribute("list", list);
 		
 		
-    	return "list";
+    	return "hhlist";
     }
 	
 	@RequestMapping(value="detail")
@@ -79,7 +79,7 @@ public class BoardController {
 		int result = bs.insert(board);
 		
 		if(result > 0) {
-			return "redirect:list.do";
+			return "redirect:hhlist.do";
 		}else {
 			model.addAttribute("msg", "입력에 실패했습니다.");
 		}
@@ -104,13 +104,13 @@ public class BoardController {
 		
 		int updateCnt = bs.modify(board);
 		model.addAttribute("updateCnt", updateCnt);
-		return "redirect:list.do";
+		return "redirect:hhlist.do";
 	}
 	
 	@RequestMapping(value="delete")
 	public String delete(int b_no, Model model) {
 		bs.delete(b_no);
-		return "redirect:list.do";
+		return "redirect:hhlist.do";
 	}
 	
 	@RequestMapping(value="reply_view")
@@ -129,7 +129,7 @@ public class BoardController {
 		int result = bs.reply(board);
 		
 		if(result > 0) {
-			return "redirect:list.do";
+			return "redirect:hhlist.do";
 		}else {
 			model.addAttribute("msg", "입력에 실패했습니다.");
 		}
