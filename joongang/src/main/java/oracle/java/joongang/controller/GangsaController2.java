@@ -12,6 +12,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +35,7 @@ import oracle.java.joongang.model.ClassFile;
 import oracle.java.joongang.model.Person;
 import oracle.java.joongang.model.Program;
 import oracle.java.joongang.service.ClassFileService;
+import oracle.java.joongang.service.SJService;
 
 
 @Controller
@@ -43,6 +46,7 @@ public class GangsaController2 {
 	
 	@Autowired
 	private SJService ss;
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(GangsaController2.class);
 
@@ -156,7 +160,7 @@ public class GangsaController2 {
 
 		return "SUCCESS";
 	}
-		@RequestMapping(value="gangsa_main")
+	@RequestMapping(value="gangsa_main")
     public String gangsa_main(Person person, Model model) {
 		return "gangsa_main";
     }
@@ -210,7 +214,6 @@ public class GangsaController2 {
 		FileCopyUtils.copy(fileData, target);
 		return savedName;
 	}
-	
 	
 }
 
