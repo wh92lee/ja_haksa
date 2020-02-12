@@ -70,4 +70,17 @@ public class PersonServiceImpl implements PersonService {
 		return pd.getmcity(b_city);
 	}
 
+	@Override
+	public int idcheck(String pid) {
+		// TODO Auto-generated method stub
+		return pd.idcheck(pid);
+	}
+
+
+	@Override
+	public int addstudent(Person person) {
+		// TODO Auto-generated method stub
+		return pd.addstudent(person);
+	}
+
 }

@@ -18,26 +18,21 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript">
-	/* function chk() {
+	 function chk() {
 		if (frm.idChkVal.value != "1") { //idChkVal.value = 1이 아니라면 중복체크를 안한것 default value = 0
 			alert("아이디중복체크를 하셔야합니땅!");
 			return false;
+		}else {
+			return true;
 		}
-		if (frm.passwd.value != frm.passwd2.value) {
-			alert("암호가 일치하지 않습니땅!");
-			frm.passwd.focus();
-			return false;
-		}
-		return true;
-	} */
+	} 
 </script>
 <script type="text/javascript">
 	var contextPath='${pageContext.request.contextPath}';
 	$(function() {
 		$('#idChk').click(function() {
 			
-			var id = $('#id').val();
-			var sendData = 'id=' + id;
+			var id = $('#pid').val();
 			var msgTrim = "";
 			frm.idChkVal.value = "1"; // click시 idChkVal value를 1로 변경
 			$.ajax({
@@ -48,10 +43,10 @@
 					msgTrim = data.replace(/(^\s*)|(\s*$)/g, "");
 					// alert("msgTrim-->"+msgTrim) 
 					if (msgTrim == "1") {
-						$('#msg').html("이미 사용중인 아이디입니땅!");
+						$('#msg').html("이미 사용중인 아이디입니다.");
 						frm.idChkVal.value = "0"; // 초기화를 해야만 새로운 아이디 입력시 중복체크여부 확인
 					} else {
-						$('#msg').html("사용할수있는 아이디입니땅!");
+						$('#msg').html("사용이 가능한 아이디입니다.");
 					}
 				}		
 			});
@@ -138,9 +133,9 @@
     </script>
     <script type="text/javascript">
     function b_city(){
-    	$('#mcity_num option').remove(0);
+    	$('#mcity option').remove(0);
     	str = "";
-    	var bcity = document.getElementById('bcity_num').value;
+    	var bcity = document.getElementById('bcity').value;
     	$.ajax({
     		url:"getMcity.do",
     		data:{b_city : bcity},
@@ -154,7 +149,7 @@
     					function() {
     				str  += "<option value='" + this.m_city + "'> " + this.city_name  + "</option> "; 			
     			});
-    			$('#mcity_num').append(str);
+    			$('#mcity').append(str);
     		}
     	});
     };
@@ -171,11 +166,11 @@
 				<p>기본정보</p>
 				<div class="left_info">
 					<div class="join_form">
-						<div class="left_title">아이디</div>
-						<div class="left_content">
-							<input type="text" name="pid" id="pid" required="required"
-								maxlength="15"> <input type="button" id="idChk"
-								name="idChk" value="중복확인">
+						<div class="left_title_id">아이디</div>
+						<div class="left_content_id">
+							<input type="text" name="pid" id="pid" required="required"	maxlength="15"> 
+							<input type="button" id="idChk" name="idChk" value="중복확인">
+							<span id="msg"></span>	<p>
 						</div>
 					</div>
 					<div class="join_form">
@@ -215,13 +210,13 @@
 					<div class="join_form">
 						<div class="left_title">주소</div>
 						<div class="left_content">
-							<select id="bcity_num" name="bcity_num" onchange="b_city()">
+							<select id="bcity" name="bcity" onchange="b_city()">
 								<option value=""> 시/도 선택 </option>
-								<c:forEach var="bcity" items="${b_city }">
-									<option value="${bcity.b_city}">${bcity.city_name }</option>
+								<c:forEach var="bcity_num" items="${b_city }">
+									<option value="${bcity_num.b_city}">${bcity_num.city_name }</option>
 								</c:forEach>
 							</select> 
-							<select id="mcity_num" name="mcity_num">
+							<select id="mcity" name="mcity">
 								<option value=""> 시/구 선택 </option>
 							</select>
 						</div>

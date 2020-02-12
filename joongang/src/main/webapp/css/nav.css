@@ -1,8 +1,8 @@
 @charset "UTF-8";
 .nav-container{
 	display: flex;
-	flex-direction: column;
-	width: 200px;
+	flex-direction: row;
+	width: 1400px;
 	margin:0;
 	padding: 0;
 	background-color:darkslategrey;
@@ -14,22 +14,21 @@
 	cursor:pointer;
 }
 
+.nav-item2{
+	padding:15px;
+	cursor:pointer;
+	list-style-type:none;
+	background-color: lightseagreen;
+	color:white;
+}
+
 .nav-item a{
 	text-align:center;
 	text-decoration: none;
 	color:white;
 }
 
-.nav-item:nth-child(1){
-	background-color: lightseagreen;
-}
 
 .nav-item:hover{
 	background-color: grey;
-}
-
-.nav-container{
-	position: fixed;
-	top:200px;
-	left:100px;
 }

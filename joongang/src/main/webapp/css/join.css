@@ -13,7 +13,7 @@ h2{
 }
 
 #j_container p{
-	margin-top: 0px;
+	margin-top: 15px;
     margin-bottom: 5px;
     margin-left: 10px;
 }
@@ -53,6 +53,27 @@ h2{
     border-top: 1px solid skyblue;
 }
 
+.join_form .left_title_id{
+	width:120px;
+	float:left;
+	height: 50px;
+	text-align: center;
+	padding-left: 5px;
+	padding-top:10px;
+	background-color: #ebefae91;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+} 
+
+.join_form .left_content_id{
+	width:215px;
+	float:left;
+	height: 50px;
+	padding-top:10px;
+	border-bottom: 1px solid skyblue;
+    border-top: 1px solid skyblue;
+}
+
 .join_form .right_title{
 	width:120px;
 	float:left;
@@ -76,7 +97,7 @@ h2{
 
 .profile_form{
 	width: 350px;
-	height:168px;
+	height:188px;
 	float:left;
 }
 

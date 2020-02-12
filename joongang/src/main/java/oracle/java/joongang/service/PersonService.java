@@ -18,4 +18,8 @@ public interface PersonService {
 	List<City> b_city();
 
 	List<City> getmcity(int b_city);
+
+	int idcheck(String pid);
+
+	int addstudent(Person person);
 }

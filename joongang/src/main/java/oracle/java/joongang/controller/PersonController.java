@@ -63,9 +63,12 @@ public class PersonController {
 	}
 
 	@RequestMapping(value = "idCheck")
-	public int idCheck(String id) {
-
-		return 0;
+	@ResponseBody
+	public int idCheck(String pid) {
+		System.out.println(".......... idCheck Start .............");
+		int idcheck = ps.idcheck(pid);
+		System.out.println("idcheck =>" + idcheck);
+		return idcheck;
 	}
 	@RequestMapping(value="getMcity")
 	@ResponseBody
@@ -94,9 +97,11 @@ public class PersonController {
 		String savedName = uploadFile(profile.getOriginalFilename(), profile.getBytes(), uploadPath);
 		logger.info("savedName: " + savedName);
 		person.setPprofile(savedName);
-		int result = ps.join(person); 
-		if (result > 0) return "redirect:login.do";
-		else { 
+		int result = ps.join(person); // 가입
+		if (result > 0) {
+			int addStudent = ps.addstudent(person); // 가입시 강의 현재인원에 +1 기능
+			return "redirect:login.do";
+		}else { 
 			return "forward:joinForm.do"; 
 		}
 	}
