@@ -28,7 +28,7 @@ body {
 					<li>학생명부</li>
 					<li><a href="">가입승인</a></li>
 					<li>출석현황</li>
-					<li>휴가관리</li>
+					<li>휴가관리</li> 
 				</ul>
 			</li>	
 			<li><a href="">임직원 관리</a>
