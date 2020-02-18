@@ -8,6 +8,7 @@
 <body>
 <%
 
+
 //response.sendRedirect("login.do");
 //response.sendRedirect("nav_menu.do"); //원희
 response.sendRedirect("sjlist.do"); 

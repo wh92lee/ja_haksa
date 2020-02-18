@@ -193,7 +193,7 @@ ul.tabs li.current {
 			<c:forEach var="person" items="${list }">
 				<tr id="btn_idCheck"
 					onclick="getPNum(${person.pnum }),getContent1(${person.pnum }),getContent2(${person.pnum }),getContent3(${person.pnum }),getEval(${person.pnum })">
-					<td>${person.gubun}${person.yymm}${person.pnum}</td>
+					<td>${num }/${person.gubun}${person.yymm}${person.pnum}</td>
 					<td>${person.pname }</td>
 					<td>${person.ptel }</td>
 					<td>${person.class_num }</td>

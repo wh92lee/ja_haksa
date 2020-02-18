@@ -22,8 +22,12 @@
 	 #{reg_date},#{class_name},#{room_num} ) 
  	</insert>
  	
-    <insert id="class_file" parameterType="Program"> 
+ 	<!-- <insert id="class_file" parameterType="Program"> 
      insert into program(upload_num, class_num, class_name, room_num) values ( #{upload_num}, #{class_num}, #{class_name}, #{room_num} )
+  	</insert> -->
+  	
+    <insert id="class_file" parameterType="Program"> 
+     insert into program(upload_num, class_num, saved_Name, class_name, room_num) values ( #{upload_num}, #{class_num}, #{saved_Name}, #{class_name}, #{room_num} )
   	</insert>
-
+  	
 </mapper>
