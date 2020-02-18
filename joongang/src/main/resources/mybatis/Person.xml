@@ -42,7 +42,7 @@
     <result property="ppeval" column="ppeval"/>
     <result property="pteval" column="pteval"/>
     <result property="reg_date" column="reg_date"/>
-  </resultMap> 
+   </resultMap> 
   
    <select id="login" parameterType="Person" resultType="int">
       select Count(*) from person where pid=#{pid} and ppw=#{ppw}	
@@ -61,7 +61,8 @@
    </insert>
    
    <select id="list" parameterType="Person" resultMap="PersonResult1">
-  	select * from person where gubun=1
+  	select * from  (select rownum rn, a.* from (select * from person
+    	 order by pnum) a) where gubun=1 and rn between #{start} and #{end}
    </select>
  
   <select id="list_i" parameterType="Person" resultMap="PersonResult1">

@@ -89,8 +89,8 @@ public class SJ_TeacherController {
 //		System.out.println("currentPage=>" + currentPage);
 		// 14 NULL(0,1....)
 		Paging pg = new Paging(total, currentPage);
-		interview.setStart(pg.getStart()); // 시작시 1
-		interview.setEnd(pg.getEnd()); // 시작시 10
+		person.setStart(pg.getStart()); // 시작시 1
+		person.setEnd(pg.getEnd()); // 시작시 10
 		List<Person> list = ss.list(person);
 		model.addAttribute("list", list);
 		model.addAttribute("pg", pg);
