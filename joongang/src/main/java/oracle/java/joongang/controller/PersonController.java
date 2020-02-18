@@ -106,7 +106,6 @@ public class PersonController {
 			return "forward:joinForm.do"; 
 		}
 	}
-
 	private String uploadFile(String originalName, byte[] fileData, String uploadPath) throws Exception {
 		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyyMMddHHmmss");		
 		Date time = new Date();
@@ -155,7 +154,7 @@ public class PersonController {
 					return "forward:student_main.do";
 				case 2:
 					System.out.println("usergubun =>" + usergubun);
-					return "forward:gangsa_main.do";
+					return "forward:sjlist.do";
 				case 3:
 					System.out.println("usergubun =>" + usergubun);
 					return "forward:insa_main.do";

@@ -29,14 +29,14 @@ public class SJServiceImpl implements SJService {
 	}
 	
 	@Override
-	public List<Interview> list(Interview interview) {
-		System.out.println("SJServiceImpl list start");
-		return sd.list(interview);
+	public List<Person> list(Person person) {
+//		System.out.println("SJServiceImpl list start");
+		return sd.list(person);
 	}
 
 	@Override
 	public int total() {
-		System.out.println("SJServiceImpl total start");
+//		System.out.println("SJServiceImpl total start");
 		return sd.total();
 	}
 
@@ -48,18 +48,51 @@ public class SJServiceImpl implements SJService {
 
 
 	@Override
-	public String PNum(int pnum) {
+	public Person PNum(int pnum) {
 		// TODO Auto-generated method stub
 		return sd.PNum(pnum);
 	}
-
+	
 	@Override
-	public List<Interview> list_i1(Interview interview) {
-		System.out.println("SJServiceImpl list_i1 start");
-		return sd.list_i1(interview);
+	public Interview Content1(int pnum) {
+		// TODO Auto-generated method stub
+		return sd.Content1(pnum);
+	}
+	@Override
+	public Interview Content2(int pnum) {
+		// TODO Auto-generated method stub
+		return sd.Content2(pnum);
+	}
+	@Override
+	public Interview Content3(int pnum) {
+		// TODO Auto-generated method stub
+		return sd.Content3(pnum);
+	}
+	
+	@Override
+	public List<Person> list_i(Person person) {
+//		System.out.println("SJServiceImpl list_i1 start");
+		return sd.list_i(person);
 	}
 
+	@Override
+	public Person i_ch(int pnum) {
+		// TODO Auto-generated method stub
+		return sd.i_ch(pnum);
+	}
 
+	@Override
+	public Person eval(int pnum) {
+		// TODO Auto-generated method stub
+		return sd.eval(pnum);
+		
+	}
 
+	@Override
+	public int c_f(Program program) {
+		// TODO Auto-generated method stub
+		return sd.c_f(program);
+	}
+	
 
 }
