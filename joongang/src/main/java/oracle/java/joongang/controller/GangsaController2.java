@@ -149,5 +149,11 @@ public class GangsaController2 {
 		return "SUCCESS";
 	}
 	
+	//출결 관리 창
+	@RequestMapping(value = "/Attendance")
+	public String Attendance() {
+		return "Attendance";
+	}
+	
 }
 

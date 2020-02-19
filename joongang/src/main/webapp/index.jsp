@@ -9,9 +9,11 @@
 
 <%
 	 //response.sendRedirect("login.do"); 
-	//response.sendRedirect("student_main.do");
+	// response.sendRedirect("student_main.do");
 	//response.sendRedirect("upLoadFormStart.do");
-	response.sendRedirect("gangsa_main.do");
+    response.sendRedirect("gangsa_main.do");
+   /// response.sendRedirect("self_introduction.do");
+	
 	
 
 
