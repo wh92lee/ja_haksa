@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="chatbotcss.jsp"%> 
+<%@ include file="chatbotcss.jsp"%>
 <%-- <%@ include file="memberCheck.jsp"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
 	function talk() {
-		str2 = "기업추천";
+		// str2 = "기업추천";
 		var user = document.getElementById("userBox").value;
 		var gubun = ${sessionScope.person.gubun};
 		var yymm = ${sessionScope.person.yymm};
@@ -19,13 +19,17 @@
 		var pid = "${sessionScope.person.pid }";
 		var person1 = String(gubun) + String(yymm) + String(pnum);
 
-		/* alert("person1->" + person1); */
-		idx = user.indexOf(str2);
-		document.getElementById("chatLog").innerHTML += user + "<br>";
+		location.href = "http://127.0.0.1:8000/polls/" + person1	+ "/ComRec";
+		
+		 alert("person1->" + person1);
+	}
+		//idx = user.indexOf(str2);
+	
+		/* document.getElementById("chatLog").innerHTML += user + "<br>";
 		$.ajax({
 			url : "iq.do",
 			data : {
-				user_question : user,
+		 user_question : user,
 				gubun : gubun,
 				yymm : yymm,
 				pnum : pnum,
@@ -33,16 +37,17 @@
 			},
 			dataType : 'text',
 			success : function(data) {
-				/* alert(".ajax Data"+data);		 */
+				 alert(".ajax Data"+data);		 
 				$('#chatLog').appendTo(data);
 			}
+			
 		});
-		if (idx >= 0) {
+	}
+		 if (idx >= 0) {
 			document.getElementById("chatLog").innerHTML += "잠시만 기다려주세요<br>";
-			/* alert("sucess person2->" + person1);  */
-			location.href = "http://127.0.0.1:8000/polls/" + person1
-					+ "/ComRec";
-			/* $.ajax({
+			alert("sucess person2->" + person1);  
+			location.href = "http://127.0.0.1:8000/polls/" + person1	+ "/ComRec";
+			 $.ajax({
 				url:"http://127.0.0.1:8000/polls/" + person1+ "/ComRec",
 				data:{					
 				},
@@ -51,11 +56,11 @@
 					alert("성공");
 					$('#chatLog').appendTo(data);					
 				}
-			}); */
+			}); 
 		} else {
 			document.getElementById("chatLog").innerHTML += "잘모르겠어요<br>";
-		}
-	}
+		} */ 
+	
 </script>
 
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -107,6 +112,8 @@
 
 		</c:when>
 	</c:choose>
+	<button type="submit" class="btn btn-default pull-right"
+										onclick="talk();">전송</button>
 	<span class="more"> <span class="blind">상담하기 V</span>
 	</span>
 	<div class="board">

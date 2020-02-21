@@ -61,11 +61,11 @@ public class ChatBotController {
 //		yymm = (int)session.getAttribute("yymm");
 //		pnum = (int)session.getAttribute("pnum");
 //		pid = (String)session.getAttribute("pid");
-		System.out.println("iq gubun " + gubun);
-		System.out.println("iq yymm -> "+ yymm);
-		System.out.println("iq pnum -> "+ pnum);
-		System.out.println("iq pid -> "+ pid);
-		System.out.println("iq userQuestion-> "+user_question);
+//		System.out.println("iq gubun " + gubun);
+//		System.out.println("iq yymm -> "+ yymm);
+//		System.out.println("iq pnum -> "+ pnum);
+//		System.out.println("iq pid -> "+ pid);
+//		System.out.println("iq userQuestion-> "+user_question);
 		int result = cbs.insert(chatbot);		
 		if(result > 0) {
 			return user_question;
