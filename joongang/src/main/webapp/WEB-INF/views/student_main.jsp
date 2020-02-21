@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%-- <%@ include file="chatbotcss.jsp"%> --%>
 <%@ include file="memberCheck.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,7 +17,7 @@
 		var yymm = ${sessionScope.person.yymm};
 		var pnum = ${sessionScope.person.pnum};
 		var pid = "${sessionScope.person.pid }";
-		 var person1 = String(gubun) + String(yymm) + String(pnum); 
+		var person1 = String(gubun) + String(yymm) + String(pnum);
 
 		/* alert("person1->" + person1); */
 		idx = user.indexOf(str2);
@@ -38,8 +39,9 @@
 		});
 		if (idx >= 0) {
 			document.getElementById("chatLog").innerHTML += "잠시만 기다려주세요<br>";
-			  /* alert("sucess person2->" + person1);  */
-			 location.href = "http://127.0.0.1:8000/polls/" + person1+ "/ComRec";
+			/* alert("sucess person2->" + person1);  */
+			location.href = "http://127.0.0.1:8000/polls/" + person1
+					+ "/ComRec";
 			/* $.ajax({
 				url:"http://127.0.0.1:8000/polls/" + person1+ "/ComRec",
 				data:{					
@@ -58,39 +60,33 @@
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <style>
+.file-item {
+	float: left;
+	margin-left: 10px;
+	/* 한줄에 5개씩  */
+	width: calc(20% - 10px);
+	margin-bottom: 20px;
+	/* border : 1px solid red; */
+}
 
-	.file-item {
-		float: left;
-		margin-left: 10px;
-		/* 한줄에 5개씩  */
-		width: calc( 20% - 10px ); 
-		margin-bottom: 20px;		
-		/* border : 1px solid red; */
-	}
-	
-	
-	
+.file-item .img, .file-item .text {
+	text-align: center;
+}
 
-	
-	.file-item .img, .file-item .text {
-		text-align: center;
-	}
-	
-	.file-item .img img{		
-		max-width : 370px;
-		max-height: 280px;
-	}
-	
-	.file-item .img{		
-		cursor: pointer;
-	}
-	
-	.file-item .text {
-		font-weight: bold;
-	}
+.file-item .img img {
+	max-width: 370px;
+	max-height: 280px;
+}
 
+.file-item .img {
+	cursor: pointer;
+}
+
+.file-item .text {
+	font-weight: bold;
+}
 </style>
-  
+
 
 </head>
 <body>
@@ -144,7 +140,8 @@
 								<div class="form-group col-xe-2">
 									<button type="submit" class="btn btn-default pull-right"
 										onclick="talk();">전송</button>
-									<a href="http://127.0.0.1:8000/polls/ComRec" target="_blank">Linear Regression</a>
+									<a href="http://127.0.0.1:8000/polls/ComRec" target="_blank">Linear
+										Regression</a>
 									<!-- session person 객체로 잡혀있을 시, 장고쪽에서 request session 으로 받을 수 있음 -->
 									<!-- 만약 연산필요한 데이터, 가령 PPEVAL 데이터가 없을 시, 자바스크립트 사용해서, '전송' 버튼자체를 비활성화. 챗봇 처음 접속 시, "꼭 자기정보수정에서 정보를 입력해주세요" 추가 -->
 
@@ -160,39 +157,42 @@
 		</div>
 	</div>
 
-	학생 메인 페이지입니다. 작업부탁드립니다.
-=======
+	학생 메인 페이지입니다. 작업부탁드립니다. =======
 
-	 
-	
+
+
 	<h1>${class_num}</h1>
-		<h3>프로그램 파일</h3>
-		
-		<a href="javascript:popupOpen();">정보 수정</a>
-	
-	
-		
-		
-	
-			
-		<form id="DownloadForm" method="post" action="/abc/downloadClassFile2.do">
-			<input type="hidden" value="" name="classFileSeq">
-			<input type="hidden" value="" name="classNum">
-		</form>
-		
-	
-		<div class="file-box">
-			<c:forEach items="${classFilesList }" var="item" varStatus="status">
-				<div class="file-item">
-					<div class="img" onclick="fileDownload('${item.classFileSeq}', '${item.classNum}')">
-						<c:choose>
-						<c:when test="${item.ext eq 'jpg' or item.ext eq 'png' or item.ext eq 'JPG' or item.ext eq 'PNG'}">
+	<h3>프로그램 파일</h3>
+
+	<a href="javascript:popupOpen();">정보 수정</a>
+
+
+
+
+
+
+	<form id="DownloadForm" method="post"
+		action="/abc/downloadClassFile2.do">
+		<input type="hidden" value="" name="classFileSeq"> <input
+			type="hidden" value="" name="classNum">
+	</form>
+
+
+	<div class="file-box">
+		<c:forEach items="${classFilesList }" var="item" varStatus="status">
+			<div class="file-item">
+				<div class="img"
+					onclick="fileDownload('${item.classFileSeq}', '${item.classNum}')">
+					<c:choose>
+						<c:when
+							test="${item.ext eq 'jpg' or item.ext eq 'png' or item.ext eq 'JPG' or item.ext eq 'PNG'}">
 							<img src="/abc/upload/${item.physicalName}.${item.ext}">
 						</c:when>
 						<c:otherwise>
 							<c:choose>
 								<c:when test="${empty item.iconUrl}">
-									<img src="https://image.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1350441335.jpg">
+									<img
+										src="https://image.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1350441335.jpg">
 								</c:when>
 								<c:otherwise>
 									<img src="${item.iconUrl}">
@@ -200,59 +200,59 @@
 							</c:choose>
 						</c:otherwise>
 					</c:choose>
-					</div>
-					<div class="text">
-						<span>${item.logicalName}</span>
-					</div>					
 				</div>
+				<div class="text">
+					<span>${item.logicalName}</span>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+
+	<form id="JaryoDownloadForm" method="post"
+		action="/abc/JaryodownloadClassFile2.do">
+		<input type="hidden" value="" name="classFileSeq"> <input
+			type="hidden" value="" name="classNum">
+	</form>
+
+
+	<h3>강의 자료</h3>
+	<div id="jaryo">
+		<table>
+			<c:forEach items="${list}" var="item1">
+
 			</c:forEach>
-		</div> 
-		
-		<form id="JaryoDownloadForm" method="post" action="/abc/JaryodownloadClassFile2.do">
-			<input type="hidden" value="" name="classFileSeq">
-			<input type="hidden" value="" name="classNum">
-		</form>
-		
-		
-			<h3>강의 자료</h3>
-				<div id="jaryo">
-					<table>
-						<c:forEach items="${list}" var="item1" >
-						
-						</c:forEach>
-					
-					
-						
-							
-					</table>
-				</div> 
+
+
+
+
+		</table>
+	</div>
 
 
 
 
 </body>
 <script type="text/javascript">
-//파일 다운로드
-function fileDownload(classFileSeq, classNum){
-	$("#fileDownloadForm [name=classFileSeq]").val(classFileSeq);
-	$("#fileDownloadForm [name=classNum]").val( classNum);
-	$("#fileDownloadForm").submit();
-}
+	//파일 다운로드
+	function fileDownload(classFileSeq, classNum) {
+		$("#fileDownloadForm [name=classFileSeq]").val(classFileSeq);
+		$("#fileDownloadForm [name=classNum]").val(classNum);
+		$("#fileDownloadForm").submit();
+	}
 
-//강의자료 다운로드
-function jaryoDownload(classFileSeq, classNum){
-	$("#jaryoDownloadForm [name=classFileSeq]").val(classFileSeq);
-	$("#jaryoDownloadForm [name=classNum]").val( classNum);
-	$("#jaryoDownloadForm").submit();
-}
+	//강의자료 다운로드
+	function jaryoDownload(classFileSeq, classNum) {
+		$("#jaryoDownloadForm [name=classFileSeq]").val(classFileSeq);
+		$("#jaryoDownloadForm [name=classNum]").val(classNum);
+		$("#jaryoDownloadForm").submit();
+	}
 
-//정보수정 팝업창
-function popupOpen(){
+	//정보수정 팝업창
+	function popupOpen() {
 
-	var popUrl = "/abc/self_introduction.do";	//팝업창에 출력될 페이지 URL
-	var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-	window.open(popUrl,"",popOption);
-}
-
+		var popUrl = "/abc/self_introduction.do"; //팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;"; //팝업창 옵션(optoin)
+		window.open(popUrl, "", popOption);
+	}
 </script>
 </html>
