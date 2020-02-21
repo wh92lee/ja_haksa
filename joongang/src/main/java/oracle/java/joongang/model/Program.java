@@ -1,5 +1,12 @@
 package oracle.java.joongang.model;
 
+
+import java.sql.Date;
+
+import org.springframework.web.multipart.MultipartFile;
+
+
+
 public class Program {
 
 	private int upload_num;
@@ -53,6 +60,7 @@ public class Program {
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
+
 	
 	
 }

@@ -17,7 +17,15 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>	
+		<beans:property name="order" value="1" />				
+	</beans:bean>
+	
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0" />
+	</beans:bean>
+		
+	<beans:bean id="downloadView" class="oracle.java.joongang.view.DownloadView"></beans:bean>
+	
 	<context:component-scan base-package="oracle.java.joongang" />	
 	<!-- <context:component-scan base-package="controller,service,dao" /> -->	
 	
@@ -25,10 +33,13 @@
 	<beans:bean id="multipartResolver"	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value="104857620000"></beans:property>
 	</beans:bean>
-	<!--       File Upload Path  Setting    -->
+	
+	<!--    File Upload Path  Setting --> 
     <beans:bean id="uploadPath"  class="java.lang.String">
-        <beans:constructor-arg value="C:\\log\\upload"></beans:constructor-arg>
+        <beans:constructor-arg value="C:log"></beans:constructor-arg>
     </beans:bean>
+
+    	
 	
 
 </beans:beans>
