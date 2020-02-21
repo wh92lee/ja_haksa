@@ -14,7 +14,7 @@
 	<h3>1차 시험</h3>
 	<tr>
 	<th>입력할 학생 번호</th>
-	<td><input type="number" name="pnum" placeholder="예) 101"></td>
+	<td><input type="number" name="pnum"></td>
 	</tr><tr>
 	<th>ppeval</th>
 	<td><input type="number" name="ppeval"></td>

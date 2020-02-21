@@ -1,29 +1,26 @@
 package oracle.java.joongang.service;
 public class Paging {
-	private int currentPage = 1;	
-	private int rowPage     = 10;
-	private int pageBlock   = 10;		
-	private int start;		    private int end;
-	private int startPage;	    private int endPage;
-	private int total;		    private int totalPage;
+	private int currentPage = 1;	private int rowPage   = 10;
+	private int pageBlock = 10;		
+	private int start;		private int end;
+	private int startPage;	private int endPage;
+	private int total;		private int totalPage;
 	
-	//                   14            NULL
 	public Paging(int total, String currentPage1) {
 		this.total = total;
 		if (currentPage1 != null) {
 			this.currentPage = Integer.parseInt(currentPage1);			
 		}
-		//         
-		start = (currentPage - 1) * rowPage + 1;                 // ì‹œìž‘ì‹œ 1
-		end   = start + rowPage - 1;                             // ì‹œìž‘ì‹œ 10 
-		totalPage = (int) Math.ceil((double)total / rowPage);    // ì‹œìž‘ì‹œ 2
-		startPage = currentPage - (currentPage - 1) % pageBlock; // ì‹œìž‘ì‹œ 1
-		//                 1          10
-		endPage = startPage + pageBlock - 1;                     // ì‹œìž‘ì‹œ 10 
+		start = (currentPage - 1) * rowPage + 1;  // ?‹œ?ž‘?‹œ 1
+		end   = start + rowPage - 1;              // ?‹œ?ž‘?‹œ 10 
+		totalPage = (int) Math.ceil((double)total / rowPage);  // ?‹œ?ž‘?‹œ 2
+		startPage = currentPage - (currentPage - 1) % pageBlock; // ?‹œ?ž‘?‹œ 1
+		endPage = startPage + pageBlock - 1;
 		if (endPage > totalPage) {
-			endPage = totalPage;                                 // ì‹œìž‘ 2
+			endPage = totalPage;
 		}
 	}
+
 	public int getCurrentPage() {	return currentPage;	}
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;

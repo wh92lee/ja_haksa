@@ -29,28 +29,7 @@ public class Person {
 	private int ppeval;
 	private int pteval;
 	private Date reg_date;
-	private String pageNum;  
-	private int start; 		     
-	private int end;
 	
-	public String getPageNum() {
-		return pageNum;
-	}
-	public void setPageNum(String pageNum) {
-		this.pageNum = pageNum;
-	}
-	public int getStart() {
-		return start;
-	}
-	public void setStart(int start) {
-		this.start = start;
-	}
-	public int getEnd() {
-		return end;
-	}
-	public void setEnd(int end) {
-		this.end = end;
-	}
 	public int getGubun() {
 		return gubun;
 	}

@@ -18,21 +18,26 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript">
-	 function chk() {
+	/* function chk() {
 		if (frm.idChkVal.value != "1") { //idChkVal.value = 1이 아니라면 중복체크를 안한것 default value = 0
 			alert("아이디중복체크를 하셔야합니땅!");
 			return false;
-		}else {
-			return true;
 		}
-	} 
+		if (frm.passwd.value != frm.passwd2.value) {
+			alert("암호가 일치하지 않습니땅!");
+			frm.passwd.focus();
+			return false;
+		}
+		return true;
+	} */
 </script>
 <script type="text/javascript">
 	var contextPath='${pageContext.request.contextPath}';
 	$(function() {
 		$('#idChk').click(function() {
 			
-			var id = $('#pid').val();
+			var id = $('#id').val();
+			var sendData = 'id=' + id;
 			var msgTrim = "";
 			frm.idChkVal.value = "1"; // click시 idChkVal value를 1로 변경
 			$.ajax({
@@ -43,10 +48,10 @@
 					msgTrim = data.replace(/(^\s*)|(\s*$)/g, "");
 					// alert("msgTrim-->"+msgTrim) 
 					if (msgTrim == "1") {
-						$('#msg').html("이미 사용중인 아이디입니다.");
+						$('#msg').html("이미 사용중인 아이디입니땅!");
 						frm.idChkVal.value = "0"; // 초기화를 해야만 새로운 아이디 입력시 중복체크여부 확인
 					} else {
-						$('#msg').html("사용이 가능한 아이디입니다.");
+						$('#msg').html("사용할수있는 아이디입니땅!");
 					}
 				}		
 			});
@@ -58,7 +63,7 @@
 	var sel_file;
 	
 	$(document).ready(function(){
-		$("#profile").on("change", handleImgFileSelect);
+		$("#pprofile").on("change", handleImgFileSelect);
 	});
 	
 	function handleImgFileSelect(e){
@@ -131,34 +136,11 @@
 	    	});
 	    };
     </script>
-    <script type="text/javascript">
-    function b_city(){
-    	$('#mcity option').remove(0);
-    	str = "";
-    	var bcity = document.getElementById('bcity').value;
-    	$.ajax({
-    		url:"getMcity.do",
-    		data:{b_city : bcity},
-    		dataType:'json',
-    		success:function(data){
-    			//var list = JSON.parse(data);
-    			/* var jsondata = JSON.stringify(data);
-    			alert(jsondata); */
-    				str  += "<option>시/구 선택</option> ";
-    				$(data).each(
-    					function() {
-    				str  += "<option value='" + this.m_city + "'> " + this.city_name  + "</option> "; 			
-    			});
-    			$('#mcity').append(str);
-    		}
-    	});
-    };
-    </script>
 </head>
 <body>
 	<div class="wrap">
 		<form action="joinPro.do" method="post" name="frm"
-			onsubmit="return chk()" id="join_form" enctype="multipart/form-data">
+			onsubmit="return chk()" id="join_form">
 			<input type="hidden" id="idChkVal" name="idChkVal" value="0">
 			<div id="j_container" role="main">
 				<h2>회원가입</h2>
@@ -166,11 +148,11 @@
 				<p>기본정보</p>
 				<div class="left_info">
 					<div class="join_form">
-						<div class="left_title_id">아이디</div>
-						<div class="left_content_id">
-							<input type="text" name="pid" id="pid" required="required"	maxlength="15"> 
-							<input type="button" id="idChk" name="idChk" value="중복확인">
-							<span id="msg"></span>	<p>
+						<div class="left_title">아이디</div>
+						<div class="left_content">
+							<input type="text" name="pid" id="pid" required="required"
+								maxlength="15"> <input type="button" id="idChk"
+								name="idChk" value="중복확인">
 						</div>
 					</div>
 					<div class="join_form">
@@ -197,8 +179,8 @@
 					<div class="join_form">
 						<div class="left_title">나이</div>
 						<div class="left_content">
-							<input type="text" name="age" id="age" required="required"
-								style="width: 40px;" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"> 세
+							<input type="number" name="age" id="age" required="required"
+								style="width: 40px;"> 세
 						</div>
 					</div>
 					<div class="join_form">
@@ -210,14 +192,16 @@
 					<div class="join_form">
 						<div class="left_title">주소</div>
 						<div class="left_content">
-							<select id="bcity" name="bcity" onchange="b_city()">
-								<option value=""> 시/도 선택 </option>
-								<c:forEach var="bcity_num" items="${b_city }">
-									<option value="${bcity_num.b_city}">${bcity_num.city_name }</option>
-								</c:forEach>
-							</select> 
-							<select id="mcity" name="mcity">
-								<option value=""> 시/구 선택 </option>
+							<select id="bcity_num" name="bcity_num" onchange="b_city()">
+								<option value=""> 시 선택 </option>
+								<%-- <c:forEach var="classlist" items="${classlist }">
+									<option value="${classlist.class_num}">${classlist.class_name }</option>
+								</c:forEach> --%>
+							</select> <select id="mcity_num" name="mcity_num" onchange="m_city()">
+								<option value=""> 구 선택 </option>
+								<%-- <c:forEach var="classlist" items="${classlist }">
+									<option value="${classlist.class_num}">${classlist.class_name }</option>
+								</c:forEach> --%>
 							</select>
 						</div>
 					</div>
@@ -231,14 +215,14 @@
 				</div>
 				<div class="right_info">
 					<div class="profile_form">
-						<div id="profile_img">
+						<div id="profile">
 							<img id="img" />
 						</div>
 					</div>
 					<div class="join_form">
 						<div class="right_title">프로필사진</div>
 						<div class="right_content">
-							<input type="file" name="profile" id="profile" required="required"/>
+							<input type="file" name="pprofile" id="pprofile" />
 						</div>
 					</div>
 					<div class="join_form">
@@ -258,7 +242,7 @@
 						<div class="right_title">성별</div>
 						<div class="right_content">
 							<input type="radio" name="pgender" value=1 checked="checked">남자
-							<input type="radio" name="pgender" value=0>여자
+							<input type="radio" name="pgender" value=2>여자
 						</div>
 					</div>
 				</div>
@@ -268,7 +252,7 @@
 						<div class="left_name">과정명</div>
 						<div class="right_name">
 							<select id="class_num" name="class_num" onchange="sel_class()">
-								<option value="0"> 신청하신 훈련과정을 선택해주세요.</option>
+								<option value=""> 신청하신 훈련과정을 선택해주세요.</option>
 								<c:forEach var="classlist" items="${classlist }">
 									<option value="${classlist.class_num}">${classlist.class_name }</option>
 								</c:forEach>
