@@ -5,10 +5,10 @@
 <mapper namespace="Person">
   <!-- Use type aliases to avoid typing the full classname every time. -->
   <resultMap id="PersonResult" type="Person">
-  	<result property=""    column=""/>
-    <result property="empno"     column="empno"/>
-    <result property="ename"     column="ename"/>
-    <result property="job"       column="job"/>
+  	<result property="gubun"    column="gubun"/>
+    <result property="yymm"     column="yymm"/>
+    <result property="pnum"     column="pnum"/>
+    <result property="pid"       column="pid"/>
     <result property="mgr"       column="mgr"/>
     <result property="hiredate"  column="hiredate"/>
     <result property="sal"       column="sal"/>
@@ -37,5 +37,20 @@
    <update id="update_s" parameterType="Person">
 	 update person set ppeval = #{ppeval}, pteval= #{pteval} where pnum = #{pnum} 
   </update>
+
+  <select id="b_city" resultType="City">
+  	select b_city, city_name from city where m_city=10
+  </select>
+  <select id="m_city" parameterType="int" resultType="City">
+  	select m_city, city_name from city where b_city=#{b_city} and m_city != 10
+  </select>
+  <select id="idcheck" parameterType="String" resultType="int">
+  	select Count(*) from person where pid=#{pid} and alive != 'D'
+  </select>
+  <update id="addstudent" parameterType="Person">
+  	update class set now_person = now_person+1 where class_num=#{class_num}
+  </update>
+  
+
   
 </mapper>

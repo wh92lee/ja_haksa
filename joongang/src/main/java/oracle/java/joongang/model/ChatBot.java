@@ -6,7 +6,24 @@ public class ChatBot {
 	private String user_question, pid, chatbot;
 	private int pnum, gubun, yymm, question_num;
 	private Date reg_date;
+	private int start; 		     private int end;
 	 
+	public int getStart() {
+		return start;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
+
 	public ChatBot() {
 		
 	}
