@@ -32,7 +32,7 @@
    </select> 
    
   <select id="total1" resultType="int">
-  	select count(*) from person
+  	select count(*) from person where gubun=1
   </select> 
   
   

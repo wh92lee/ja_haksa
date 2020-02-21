@@ -36,14 +36,10 @@ function popupOpen(){
 </style>
 </head>
 <body>
-강사 메인 페이지입니다.
-작업부탁드립니다.
-	<div><img class="photo" src="images/kwangA1.jpg">사진</div>
-	<a href="javascript:popupOpen();">파일 관리</a>
-	<div>오늘의 출결 공간(프로시저구현)</div>
+	<div><img class="photo" src="images/kwangA1.jpg"><p>강사님사진</p></div>
+	<a href="javascript:popupOpen();">강의자료 올리기</a>
+	<div>오늘의 출결 공간</div>
 	<div>강의자료 공간<a href="student_main.do"><p></p> 강의 올리기 클릭 확인</a> </div>	
-	<div>경로:<a href="${uploadPath }"><c:if test="${uploadPath!=null }"><img class="photo" src="images/unnamed.png"></c:if></a> </div>
-	
 	
 	<div>질의응답 공간</div>		
 </body>

@@ -9,9 +9,9 @@
 <%
 
 
-//response.sendRedirect("login.do");
+response.sendRedirect("login.do");
 //response.sendRedirect("nav_menu.do"); //원희
-response.sendRedirect("sjlist.do"); 
+//response.sendRedirect("sjlist.do"); 
 // response.sendRedirect("chatbot.do"); //재원
 //response.sendRedirect("gangsa_main.do"); 
 //response.sendRedirect("student_main.do");
