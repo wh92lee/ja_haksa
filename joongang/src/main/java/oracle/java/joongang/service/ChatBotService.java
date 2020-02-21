@@ -6,7 +6,7 @@ import oracle.java.joongang.model.ChatBot;
 
 public interface ChatBotService {
 	void chatbot();
-	void insertQuestion();
+	int insertQuestion(ChatBot chatbot);
 	int total();
 	int insert(ChatBot chatbot);
 	List<ChatBot> list(ChatBot chatbot);

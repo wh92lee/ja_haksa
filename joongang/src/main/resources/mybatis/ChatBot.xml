@@ -8,7 +8,8 @@
 		<result property="gubun" column="gubun" />
 		<result property="yymm" column="yymm" />
 		<result property="pid" column="pid" />
-		<result property="uesr_question" column="uesr_question" />
+		<result property="user_question" column="user_question" />
+		<result property="uq_num" column="uq_num"/>
 	</resultMap>
 
 	<select id="listAll" parameterType="ChatBot" resultMap="ChatBotResult">
@@ -23,9 +24,9 @@
 		select count(*) from chatbot
 	</select>
 	
-	<insert id="insert" parameterType="ChatBot">
-		insert into chatbot
-			values(#{pnum},#{gubun},#{yymm},#{pid},#{uesr_question});
+	<insert id="insert" parameterType="ChatBot" >
+		insert into chatbot(gubun, yymm, pnum, pid, user_question, uq_num, reg_date)
+			values( #{gubun},#{yymm},#{pnum},#{pid},#{user_question}, uq_seq.nextval, sysdate)
 	</insert>
 	
 	
