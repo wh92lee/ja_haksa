@@ -77,7 +77,7 @@ public class GangsaController {
 		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyyMMddHHmmss");		
 		Date time = new Date();
 		String time1 = format1.format(time);
-		System.out.println(time1);
+		System.out.println(time1); 
 		
 		/*UUID uid = UUID.randomUUID();
 		*/// requestPath = requestPath + "/resources/image";
