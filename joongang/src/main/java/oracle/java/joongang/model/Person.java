@@ -30,6 +30,7 @@ public class Person {
 	private int pteval;
 	private Date reg_date;
 	
+	
 	public int getGubun() {
 		return gubun;
 	}

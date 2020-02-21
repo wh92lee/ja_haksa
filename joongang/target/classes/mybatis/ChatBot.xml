@@ -28,7 +28,4 @@
 		insert into chatbot(gubun, yymm, pnum, pid, user_question, uq_num, reg_date)
 			values( #{gubun},#{yymm},#{pnum},#{pid},#{user_question}, uq_seq.nextval, sysdate)
 	</insert>
-	
-	
-
 </mapper>

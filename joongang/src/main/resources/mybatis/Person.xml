@@ -5,10 +5,10 @@
 <mapper namespace="Person">
   <!-- Use type aliases to avoid typing the full classname every time. -->
   <resultMap id="PersonResult" type="Person">
-  	<result property=""    column=""/>
-    <result property="empno"     column="empno"/>
-    <result property="ename"     column="ename"/>
-    <result property="job"       column="job"/>
+  	<result property="gubun"    column="gubun"/>
+    <result property="yymm"     column="yymm"/>
+    <result property="pnum"     column="pnum"/>
+    <result property="pid"       column="pid"/>
     <result property="mgr"       column="mgr"/>
     <result property="hiredate"  column="hiredate"/>
     <result property="sal"       column="sal"/>
@@ -49,4 +49,6 @@
   <update id="addstudent" parameterType="Person">
   	update class set now_person = now_person+1 where class_num=#{class_num}
   </update>
+  
+  
 </mapper>
