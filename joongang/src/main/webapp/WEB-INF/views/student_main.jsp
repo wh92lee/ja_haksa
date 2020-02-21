@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
     pageEncoding="UTF-8"%>
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,6 +11,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <style>
+
 
 	.file-item {
 		float: left;
@@ -40,16 +44,18 @@
 	}
 
 </style>
-  
+
+
 </head>
 <body>
 
+
 	 
-	
+	<!-- 선택 한 강의 명 출력 -->
 	<h1>${class_num}</h1>
 		<h3>프로그램 파일</h3>
 		
-		<a href="javascript:popupOpen();">정보 수정</a>
+	<!-- 	<a href="javascript:popupOpen();">정보 수정</a> -->
 	
 	
 		
@@ -107,11 +113,18 @@
 							
 					</table>
 				</div> 
+			
+		<!-- 출석 체크 시 조퇴로 버튼 변환 -->	
+			<button>출석</button>
+			<button>조퇴</button>
+
+
 
 
 
 </body>
 <script type="text/javascript">
+
 //파일 다운로드
 function fileDownload(classFileSeq, classNum){
 	$("#fileDownloadForm [name=classFileSeq]").val(classFileSeq);
@@ -126,13 +139,18 @@ function jaryoDownload(classFileSeq, classNum){
 	$("#jaryoDownloadForm").submit();
 }
 
-//정보수정 팝업창
-function popupOpen(){
 
-	var popUrl = "/abc/self_introduction.do";	//팝업창에 출력될 페이지 URL
-	var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-	window.open(popUrl,"",popOption);
-}
+
+
+/* 	function popupOpen() {
+
+		var popUrl = "test1.do"; //팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;"; //팝업창 옵션(optoin)
+		window.open(popUrl, "", popOption);
+	} */
+
+
+
 
 </script>
 </html>

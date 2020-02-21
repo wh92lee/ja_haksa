@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
 
 <%
@@ -14,10 +15,6 @@
     response.sendRedirect("gangsa_main.do");
    /// response.sendRedirect("self_introduction.do");
 	
-	
-
-
-	
 //response.sendRedirect("login.do"); 
 //response.sendRedirect("nav_menu.do"); 원희
 // response.sendRedirect("chatbot.do"); 재원
@@ -25,7 +22,6 @@
 //response.sendRedirect("do_tab_ajax.do"); 승주
 //response.sendRedirect("list.do"); 승주
 //response.sendRedirect("upLoadFormStart.do"); 승주
-
 
 %>
 </body>

@@ -42,31 +42,27 @@ public class StudentController {
 	public String student_main(Person person, Model model) {
 		int classNum = 1;
 		List<ClassFile> classFilesList = classFileService.selectClassFileListByClassNum(classNum);
+
 		model.addAttribute("classFilesList", classFilesList);
 		return "student_main";
 
 	}
-	@RequestMapping(value = "self_introduction")
-	public String self_introduction(Person person, Model model) {
-		
-		return "self_introduction";
-	
 
-	}
-	
+
 	
 
 	@RequestMapping(value = "/downloadClassFile2")
 	public ModelAndView download(@RequestParam(value = "classFileSeq") int classFileSeq,
 			@RequestParam(value = "classNum") int classNum) throws Exception {
-
+		System.out.println("classFileSeq->"+classFileSeq);
+		System.out.println("classNum->"+classNum);
 		ClassFile classFile = new ClassFile();
 		classFile.setClassFileSeq(classFileSeq);
 		classFile.setClassNum(classNum);
 		classFile = classFileService.selectOneClassFile(classFile);
 
 		if (classFile == null) {
-			throw new Exception("파일이 존재 하지 않습니다.");
+			throw new Exception("파일이 존재하지 않습니다2.");
 		}
 
 		StringBuffer sb = new StringBuffer();
@@ -76,37 +72,9 @@ public class StudentController {
 
 		// String fullPath = path + "\\" + fileName;
 		String filePath = sb.toString();
-		File file = new File(filePath + "." + classFile.getExt());
-
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("file", file);
-		map.put("classFile", classFile);
-
-		return new ModelAndView("downloadView", "map", map);
-	}
-
-	 //강의 자료 다운로드 하는 곳.
-	@RequestMapping(value= "/JaryodownloadClassFile2")
-	public ModelAndView jaryodownload(@RequestParam(value="classFileSep")int classFileSeq,
-			@RequestParam(value="classNum")int classNum)throws Exception{
+		File file = new File(filePath);
+//		File file = new File(filePath + "." + classFile.getExt());
 		
-		ClassFile classFile = new ClassFile();
-		classFile.setClassFileSeq(classFileSeq);
-		classFile.setClassNum(classNum);
-		classFile = classFileService.selectOneClassFile(classFile);
-		
-		if (classFile == null) {
-			throw new Exception("파일이 존재 하지 않습니다.");
-		}
-
-		StringBuffer sb = new StringBuffer();
-		sb.append(classFile.getFilePath()).append("/").append(classFile.getPhysicalName());
-		// .append(".")
-		// .append(classFile.getExt());
-
-		// String fullPath = path + "\\" + fileName;
-		String filePath = sb.toString();
-		File file = new File(filePath + "." + classFile.getExt());
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("file", file);

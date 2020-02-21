@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -105,7 +106,6 @@ public class PersonController {
 			return "forward:joinForm.do"; 
 		}
 	}
-
 	private String uploadFile(String originalName, byte[] fileData, String uploadPath) throws Exception {
 		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyyMMddHHmmss");		
 		Date time = new Date();
@@ -132,7 +132,7 @@ public class PersonController {
 	}
 
 	@RequestMapping(value = "loginPro")
-	public String loginPro(Person person, Model model) {
+	public String loginPro(Person person, Model model, HttpServletRequest request) {
 		System.out.println("PersonController joinPro start .....");
 		Person gubun = null;
 		int result = ps.login(person);
@@ -141,6 +141,10 @@ public class PersonController {
 			String alive = ps.aliveChk(person);
 			model.addAttribute("alive", alive);
 			if (alive.equals("A")) {
+				System.out.println(person.getPid()+"/"+person.getPpw()+"/"+person.getPname());
+				HttpSession session = request.getSession();
+				session.setAttribute("pid", person.getPid());
+				session.setAttribute("ppw", person.getPpw());
 				gubun = ps.gubun(person);
 				int usergubun = gubun.getGubun();
 
@@ -150,7 +154,7 @@ public class PersonController {
 					return "forward:student_main.do";
 				case 2:
 					System.out.println("usergubun =>" + usergubun);
-					return "forward:gangsa_main.do";
+					return "forward:sjlist.do";
 				case 3:
 					System.out.println("usergubun =>" + usergubun);
 					return "forward:insa_main.do";

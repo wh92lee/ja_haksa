@@ -258,7 +258,7 @@
 						<div class="right_title">성별</div>
 						<div class="right_content">
 							<input type="radio" name="pgender" value=1 checked="checked">남자
-							<input type="radio" name="pgender" value=2>여자
+							<input type="radio" name="pgender" value=0>여자
 						</div>
 					</div>
 				</div>
