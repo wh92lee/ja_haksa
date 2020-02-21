@@ -62,10 +62,6 @@ public class StudentController {
 //		System.out.println("student_main 5 ->" + person.getPnum());
     	return "student_main";
     }
-
-
-	}
-	
 	
 
 	@RequestMapping(value = "/downloadClassFile2")

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="chatbotcss.jsp"%>
 <%@ include file="memberCheck.jsp"%>
@@ -124,22 +124,22 @@ function chatListFunction(type){
 </script>
 </head>
 <body>
-<%-- 	<%=
+	<%=
 		
 	 session.setAttribute("gubun", "gubun"));  
 	 session.setAttribute("yymm", "${sessionScope.loginPersonInfo.yymm}");  
 	 session.setAttribute("pnum", "${sessionScope.loginPersonInfo.pnum}");  
 	 session.setAttribute("pid", "${sessionScope.loginPersonInfo.pid}");	
-	 %> --%>
+	 %>
 	
-	<%-- <c:choose>
+	<c:choose>
 		<c:when test="${not empty sessionScope.loginPersonInfo}">
 			<input type="hidden" name="gubun" id="gubun" value="${sessiomScope.loginPersonInfo.gubun }">
 			<input type="hidden" name="yymm" id="yymm" value="${sessiomScope.loginPersonInfo.yymm }">
 			<input type="hidden" name="pnum" id="pnum" value="${sessiomScope.loginPersonInfo.pnum }">
 			<input type="hidden" name="pid" id="pid" value="${sessiomScope.loginPersonInfo.pid }">
 		</c:when>
-	</c:choose> --%>
+	</c:choose>
 	
 	<span class="more"> <span class="blind">상담하기 V</span>
 	</span>
@@ -188,3 +188,4 @@ function chatListFunction(type){
 
 </body>
 </html>
+ --%> --%>
