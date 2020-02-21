@@ -10,27 +10,13 @@
 
 
 
-<%
-	 //response.sendRedirect("login.do"); 
-	// response.sendRedirect("student_main.do");
-	//response.sendRedirect("upLoadFormStart.do");
-    response.sendRedirect("gangsa_main.do");
-   /// response.sendRedirect("self_introduction.do");
-	
-	
-
-
-	
-//response.sendRedirect("login.do"); 
-//response.sendRedirect("nav_menu.do"); 원희
-// response.sendRedirect("chatbot.do"); 재원
-//response.sendRedirect("sjwriteInterviewForm.do"); 승주
-//response.sendRedirect("do_tab_ajax.do"); 승주
-//response.sendRedirect("list.do"); 승주
-//response.sendRedirect("upLoadFormStart.do"); 승주
-
-
-%>
+	<%
+		//response.sendRedirect("login.do"); 
+		// response.sendRedirect("student_main.do");
+		//response.sendRedirect("upLoadFormStart.do");
+		response.sendRedirect("gangsa_main.do");
+		/// response.sendRedirect("self_introduction.do");
+	%>
 
 </body>
 </html>

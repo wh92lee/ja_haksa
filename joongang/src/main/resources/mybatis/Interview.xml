@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Interview">
+	<resultMap id="InterviewResult" type="Interview">
+    <result property="pnum" column="pnum"/>
+    <result property="gubun" column="gubun"/>
+    <result property="yymm" column="yymm"/>
+    <result property="interview_content" column="interview_content"/>
+    <result property="interview_count" column="interview_count"/>
+    <result property="reg_date" column="reg_date"/>
+  </resultMap> 
+  
+  <insert id="insert_i" parameterType="Interview">
+	 insert into interview values (#{pnum},#{gubun},#{yymm},
+	 #{interview_count},#{interview_content},#{reg_date} ) 
+  </insert>
+  
+<!--    <select id="Interview1" parameterType="Interview" resultMap="InterviewResult">
+        select * from interview where pnum = #{pnum} and interview_count = 1
+   </select>  -->
+  
+   <select id="Interview1" parameterType="Interview" resultType="Interview">
+        select * from interview where pnum = #{pnum} and interview_count = 1
+   </select> 
+   <select id="Interview2" parameterType="Interview" resultType="Interview">
+        select * from interview where pnum = #{pnum} and interview_count = 2
+   </select> 
+   <select id="Interview3" parameterType="Interview" resultType="Interview">
+        select * from interview where pnum = #{pnum} and interview_count = 3
+   </select> 
+   
+  <select id="total1" resultType="int">
+  	select count(*) from person where gubun=1
+  </select> 
+  
+  
+
+</mapper>

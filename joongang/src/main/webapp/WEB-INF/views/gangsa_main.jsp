@@ -24,5 +24,21 @@ function popupOpen(){
 
 
 </script>
+
+<style type="text/css">
+.photo {
+	width:100px;
+	height:100px;
+}
+</style>
+</head>
+<body>
+	<div><img class="photo" src="images/kwangA1.jpg"><p>강사님사진</p></div>
+	<a href="javascript:popupOpen();">강의자료 올리기</a>
+	<div>오늘의 출결 공간</div>
+	<div>강의자료 공간<a href="student_main.do"><p></p> 강의 올리기 클릭 확인</a> </div>	
+	
+	<div>질의응답 공간</div>		
+
 </body>
 </html>
