@@ -26,7 +26,7 @@ import oracle.java.joongang.model.Class;
 import oracle.java.joongang.model.Person;
 import oracle.java.joongang.service.ClassService;
 import oracle.java.joongang.service.PersonService;
-import oracle.java.joongang.controller.loginBO;
+
 
 @Controller
 public class PersonController {
